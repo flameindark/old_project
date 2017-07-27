@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单机显示坐标</title>
+</head>
+<body>
+	<script>
+		window.onload=function  () {
+			document.onclick=function  (ev) {
+				var oEvent=window.event||ev;
+				alert("坐标：["+oEvent.clientX+","+ oEvent.clientY+"]");
+			}
+		}
+	</script>
+</body>
+</html>

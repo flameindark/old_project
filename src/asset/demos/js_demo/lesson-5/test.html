@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义鼠标右键菜单</title>
+    <style>
+    /*why,it's not inline????????????????????????????????????????????????????????*/
+        ul{width: 100px;height: 72px;list-style: none;padding: 2px;border:1px solid #666;border-radius: 4px;display:block;position: absolute;}
+        li{height: 24px;width: 100px;background: #eaeaea;}
+        em{width: 20px;height: 24px;display: inline-block;}
+        em.cut{background: url(ico.png) no-repeat;}
+        em.copy{background: url(ico.png) 0 -24px no-repeat;}
+        em.paste{background: url(ico.png) 0 -48px no-repeat;}
+        a{text-decoration: none;color: #555;font-size: 12px;line-height: 24px;background: #fff;width: 76px;display: inline-block;padding-left: 4px;height:24px;}
+
+    </style>
+</head>
+<body>
+        <ul>
+            <li><em class="cut"></em><a href="javascript:;">剪切</a></li>
+            <li><em class="copy"></em><a href="javascript:;">复制</a></li>
+            <li><em class="paste"></em><a href="javascript:;">粘贴</a></li>
+        </ul>
+</body>
+</html>

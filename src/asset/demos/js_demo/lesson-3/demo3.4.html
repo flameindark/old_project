@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>当前输入框高亮显示</title>
+	<style>
+		#wrap{background: #fef4eb;width: 400px;border:2px solid #f60;margin: 0 auto;padding-bottom: 10px;}
+		#wrap:after{content: ".";height:0;clear: both;zoom:1;visibility: hidden;display: block;}
+		h2{border-bottom: 2px solid #f60;height: 30px;color:#fe791e;font-size: 18px;line-height: 30px;margin: 0;text-align: left;}
+		p{text-align: center;float: left;clear: both;height: 30px;margin:10px 0 0 0;width: 100%;}
+		label{margin: 0;font-size: 16px;width: 100px;display: inline-block;height: 30px;float: left;text-align: right;color: #666;line-height: 30px;}
+		input{width:200px;height: 30px;padding: 0;border:none;float: left;padding-left: 5px;}
+		.inp{border:1px solid #ddd;border-radius: 5px;}
+		.highlight{background: rgba(200,20,249,.3);}
+		#btn{width: 104px;cursor: pointer;border-radius: 5px;background: #f60;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<h2>用户登录</h2>
+		<p><label>用户名:</label><input type="text" class="inp"></p>
+		<p><label>密码:</label><input type="text" class="inp"></p>
+		<p><label></label><input id="btn" type="button" value="登 录"></p>
+	</div>
+	<script>
+	//自己写的脚本，和参考的几乎一致。。。其中因为有onblur和onfocus连将样式还原都不需要做了。
+		window.onload=function  () {
+			var aInp=document.getElementsByTagName('input');
+
+			for (var i = 0; i < aInp.length-1; i++) {
+				// for (var i = 0; i < aInp.length-1; i++) {
+				// 	aInp[i].className="inp"
+				// };
+				aInp[i].onfocus=function  () {
+					this.className+=" highlight";
+				}
+				aInp[i].onblur=function  () {
+					this.className="inp"
+				}
+			};
+		}
+	</script>
+</body>
+</html>

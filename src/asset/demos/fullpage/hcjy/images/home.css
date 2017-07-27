@@ -1,0 +1,115 @@
+@charset "utf-8";
+/*banner区*/
+.banner { position: relative;width: 100%;height: 319px;overflow: hidden; }
+.banner .bd { position: relative;width: 1920px;height: 319px;left: 50%;margin-left: -960px; }
+.banner .bd li { font-size: 0; }
+.banner .hd { position: absolute;bottom: 7px;width: 100%;height: 15px;z-index: 9999; }
+.banner .hd ul { width:1050px; margin:0 auto; text-align:center; }
+.banner .hd ul li { display:inline-block; *display:inline; zoom:1; width:15px; height:15px; margin:0 3px;line-height:999px;background:url(o_ico_5.png) no-repeat; overflow:hidden; cursor:pointer; vertical-align:top; }
+.banner .hd ul li.on { background: url(o_ico_6.png) no-repeat; } 
+.banner .g-in { position: relative; }
+.banner .g-in .sub-nav { position: absolute;left: 0px;z-index: 9999;margin-top: 4px; }
+.banner .g-in .sub-nav li { width: 181px;height: 43px;font-size: 15px;margin-bottom: 2px;overflow: hidden; }
+.banner .g-in .sub-nav li a { display: block;height: 100%;color: #fff;text-align: right;padding-right: 19px;background: url(nav_bg1.png) no-repeat; }
+.banner .g-in .sub-nav li a.current,.banner .g-in .sub-nav li a:hover { background: url(nav_bg2.png) no-repeat;color: #3a3a3a; }
+.banner .g-in .sub-nav li a span { display: block;text-transform: uppercase;white-space: nowrap;font-size: 9.6px; }
+
+/*内容区*/
+/*news区的banner部分*/
+		/*.game163{ position: relative; border: 1px solid #dcdddd; padding: 4px; overflow: hidden; width: 300px; }	
+		.game163 .bigImg{ height: 258px; position: relative;}	
+		.game163 .bigImg li img{ vertical-align:middle; width:300px; height:225px;   }	
+		.game163 .bigImg  h4{ font-size: 14px; font-weight: bold; line-height: 33px; height: 33px; padding-right: 30px; overflow: hidden; text-align: left; }	
+		.game163 .smallScroll{ height: 47px; margin-bottom: 6px;}	
+		.game163 .sPrev,.game163 .sNext{ float: left; display: block; width: 14px; height: 47px; text-indent: -9999px; background: url(images/sprites1008.png) no-repeat 0 -3046px; }
+		.game163 .sNext{ background-position: 0 -2698px;}	
+		.game163 .sPrev:hover{ background-position: 0 -3133px;}	
+		.game163 .sNext:hover{ background-position: 0 -2785px;}	
+		.game163 .smallImg{ float:left;  margin: 0 6px; display:inline; width: 260px; overflow: hidden;}	
+		.game163 .smallImg ul{ height:54px;  width: 9999px; overflow: hidden; }	
+		.game163 .smallImg li{ float: left; padding: 0 4px 0 0; width:62px; cursor:pointer;  display: inline;  }	
+		.game163 .smallImg img{ border: 1px solid #dcdddd; width:60px; height:45px;  }	
+		.game163 .smallImg .on img{ border-color: #1e50a2;}	
+		.game163 .pageState{ position: absolute; top: 235px; right: 5px; font-family: "Times New Roman", serif; letter-spacing: 1px;}	
+		.game163 .pageState span{ color: #f00; font-size: 16px;}*/
+.container .news { margin-top: 31px;width: 1062px; }
+.news-banner { float: left;margin-right: 21px;width: 352px; }
+.news-banner .bigImg { position: relative;height: 246px; }
+.news-banner .bigImg li img { width: 352px;height: 246px;vertical-align: middle;}
+.news-banner .smallScroll { height: 55px;margin-top: 7px; }
+.news-banner .smallScroll .smallImg { float: left;display: inline;width: 300px;overflow: hidden;margin:0 4px; }
+.news-banner .smallScroll a { float: left;display:block;width: 22px;height: 55px; }
+.news-banner .smallScroll a.sPrev { background: url(o_ico_29.png) no-repeat; }
+.news-banner .smallScroll a.sNext { background: url(o_ico_31.png) no-repeat; }
+.news-banner .smallScroll a.sPrev:hover { background: url(o_ico_32.png) no-repeat; }
+.news-banner .smallScroll a.sNext:hover { background: url(o_ico_30.png) no-repeat; }
+.news-banner .smallScroll ul { height: 55px;overflow: hidden;width:9999px;  }
+.news-banner .smallScroll li { float: left;width: 73px;display: inline;margin-right: 3px;cursor: pointer; }
+.news-banner .smallScroll .on img { border: 1px solid #1e50a2; }
+/*通用栏目内容*/
+.container .col-1 { width: 326px;background: #fff;float: left;margin-right: 16px;color: #000; }
+.container .col-1 ul { padding: 4px 14px 7px 14px; }
+.container .col-1 ul li { height: 25px;line-height: 21px;font-size: 13px;border-bottom: 1px dashed #969696;padding-top: 6px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;  }
+.container .col-1 ul.with-date li { height: 21px; }
+.container .col-1 ul.with-date li a { display: inline-block;*display: inline;zoom: 1; ;width: 200px;white-space:nowrap;text-overflow: ellipsis;overflow: hidden; }
+.container .col-1 ul li span { float: right; }
+.container .col-1 ul .detail { height: 108px;padding-top: 8px;border-bottom: 1px dashed #969696; }
+.container .col-1 ul .detail h4 { color: #ffae00; font-size: 13px;font-weight: normal; }
+.container .col-1 ul .detail a { color: #0078ff; }
+.container .col-1 ul .detail p { text-indent: 2em;margin-top: 2px;line-height: 24px; }
+.container .col-1 ul .detail .i-more { float: right; }
+.container .col-1 ul .adv-btn { margin-top: 18px;height: 48px; }
+.container .col-1 ul .adv-btn a { display: inline-block;*display: inline;zoom:1;width:139px;height: 48px;  }
+.container .col-1 ul .adv-btn .item1 { background: url(o_ico_9.png) no-repeat;margin-right: 14px; }
+.container .col-1 ul .adv-btn .item2 { background: url(o_ico_10.png) no-repeat; }
+
+/*合作院校栏目*/
+.container .partner-list { margin-top: 35px; }
+.container .partner-list h3 { width: 43px;height: 153px;background: url(o_ico_15.png) no-repeat;float: left;margin-right: 15px;text-indent: -9999px; }
+.container .partner-list ul li { float: left;width: 238px;height: 152px;padding-bottom: 18px;background: url(img-bg.png) no-repeat;margin-right: 10px; }
+
+/*公共服务栏目*/
+.service { margin-top: 26px;width: 1054px; }
+.service-nav { float: left;margin:0px 6px 0 2px; }
+.service-nav li { background: #fff;border: 1px solid #dcdcdc;margin-bottom: 4px;font-size: 14px;line-height: 43px;overflow: hidden; }
+.service-nav li a { display: block;width: 81px;height: 37px;padding-left: 64px; }
+.service-nav li.item1 a { background: url(o_ico_19.png) no-repeat 16px 0; }
+.service-nav li.item2 a { background: url(o_ico_20.png) no-repeat 16px 0; }
+.service-nav li.item3 a { background: url(o_ico_21.png) no-repeat 16px 0; }
+.service-nav li.item4 a { background: url(o_ico_22.png) no-repeat 16px 0; }
+.service-nav li.item5 a { background: url(o_ico_23.png) no-repeat 16px 0; }
+.service-nav li.item6 a { background: url(o_ico_26.png) no-repeat 16px 0; }
+.service-nav li.item7 a { background: url(o_ico_27.png) no-repeat 16px 0; }
+.service-nav .s-right li a { background: url(o_ico_24.png) no-repeat 16px 0; }
+.service-nav h4 { line-height: 42px;width: 81px;height: 37px;font-size: 15px;color: #fff;padding-left: 64px;background: url(o_ico_18.png) no-repeat;margin-bottom: 6px; }
+.service-nav a:hover { color: #1f80bf; }
+
+/*特色专业栏目*/
+.container .benefit-list { margin-top: 36px; }
+.container .benefit-list h3  { width: 43px;height: 236px;background: url(o_ico_25.png) no-repeat;float: left;margin-right: 15px; }
+.container .benefit-list ul { width: 1060px; }
+.container .benefit-list ul li { float: left;width: 153px;height: 110px;margin:0 14px 16px 0;text-align: center;  }
+.container .benefit-list ul li a { font-size: 14px; }
+
+/*教育方针栏目*/ 
+.container .education-list { margin-top: 30px; }
+.container .education-list .edu-left { width: 147px;float: left; }
+.container .education-list .edu-left .top-nav { margin-bottom: 6px; }
+.container .education-list .edu-left ul h4 { margin-bottom: 8px; }
+.container .education-list .edu-left ul li { margin-bottom: 8px; }
+.container .education-list .edu-content { width: 632px;float: left;margin-left: 6px; }
+.container .education-list .edu-content .col-top { margin-bottom:4px;  }
+.container .education-list .edu-content .with-date li a { width: 495px; }
+.container .education-list .edu-right { float: left;width: 258px;background: #fff;padding-bottom: 16px;margin-left: 7px; }
+.container .education-list .edu-right .excellent-student { margin-bottom: 18px; }
+.container .education-list .edu-right .pic-show { position: relative;width: 219px;height: 160px;margin: 0 auto;overflow: hidden;margin-top: 14px; }
+.container .education-list .edu-right .pic-show .pic-filter { position: absolute;bottom: 0;left: 0;background: url(filter_1.png) -5px 0 no-repeat;height: 26px;width: 100%;text-align: center;color: #fff;font-size: 14px; }
+
+/*就业单位栏目*/
+.container .job-company { margin-top: 34px;font-size: 0; }
+.container .job-company h3 { width: 42px;height: 141px;text-indent: -9999px;background: url(o_ico_28.png) no-repeat;float: left; }
+.container .job-company ul { width: 993px;float: left;margin-left: 15px; }
+.container .job-company ul li { float: left; }
+
+
+		

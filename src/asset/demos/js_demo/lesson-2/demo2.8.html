@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易年历</title>
+	<style>
+		#wrap{width: 378px;height: 500px;background-color: #ccc;margin:0 auto;padding-left: 20px;}
+		#wrap ul{zoom:1;overflow: hidden;padding: 0;}
+		#wrap ul li{list-style: none;width: 80px;height: 80px;display: inline-block;float: left;margin-right: 10px;background-color: #666;margin-top: 10px;text-align: center;color:#fff;font-weight: bold;border:1px solid #666;}
+		#wrap ul li strong{font-size: 35px;display: block;margin-top: 10px;}
+		#wrap ul li.current{background: #fff;color: #ff0066;padding: 0;}
+		#des{margin: 20px 20px 0 0;background-color: #ddd;border:1px solid #fff;padding-left: 10px;}
+		#des h2,#des p{display: block;word-wrap:break-word;line-height: 30px;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul>
+			<li class="current"><strong>1</strong>JAN</li>
+			<li><strong>2</strong>JAN</li>
+			<li><strong>3</strong>JAN</li>
+			<li><strong>4</strong>JAN</li>
+			<li><strong>5</strong>JAN</li>
+			<li><strong>6</strong>JAN</li>
+			<li><strong>7</strong>JAN</li>
+			<li><strong>8</strong>JAN</li>
+			<li><strong>9</strong>JAN</li>
+		</ul>
+		<div id="des">
+			<h2>1月的节日</h2>
+			<p>元旦：放假3天.</p>
+		</div>
+	</div>
+	<script>
+		var data=[{h:"1",p:"元旦：放假3天"},{h:"2",p:"春分：二月春风似剪刀"},{h:"3",p:"妇女节：哈哈快乐"},{h:"4",p:"清明节：路上行人欲断魂"},{h:"5",p:"劳动节：我也要"},{h:"6",p:"啊，一大波小学生正在来袭"},{h:"7",p:"啊，一大波小学生正在来袭"},{h:"8",p:"啊，一大波小学生正在来袭"},{h:"9",p:"啊，一大波小学生正在来袭"}];
+		var aLi=document.getElementsByTagName('li');
+		var oDes=document.getElementById('des');
+		var oH=oDes.getElementsByTagName('h2')[0];
+		var oP=oDes.getElementsByTagName('p')[0];
+
+		window.onload=function  () {
+			for (var i = 0; i < aLi.length; i++) {
+			aLi[i].index=i;
+			aLi[i].onmouseover=function  () {
+				for(j in aLi){
+					aLi[j].className="";
+				}
+				this.className+="current";
+				oH.innerHTML=oH.innerHTML.replace(/\d/,data[this.index].h);
+				oP.innerHTML=data[this.index].p;
+			}
+			};
+		}
+	</script>
+</body>
+</html>

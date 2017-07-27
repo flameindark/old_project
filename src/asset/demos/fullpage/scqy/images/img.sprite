@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SpriteFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" CssFileName="../images" ImageName="img" IsPhone="false" xmlns="CssSprite">
+  <SpriteList>
+    <Sprite Path="nav-bottom.png" LocationX="0" LocationY="0" />
+    <Sprite Path="sbar_ico_02.png" LocationX="0" LocationY="6" />
+    <Sprite Path="footer_ico_02.png" LocationX="0" LocationY="35" />
+    <Sprite Path="sbar_ico_01.png" LocationX="0" LocationY="49" />
+    <Sprite Path="sbar_ico_03.png" LocationX="0" LocationY="84" />
+    <Sprite Path="search.png" LocationX="0" LocationY="95" />
+    <Sprite Path="more.png" LocationX="0" LocationY="123" />
+  </SpriteList>
+</SpriteFile>

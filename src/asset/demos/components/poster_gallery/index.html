@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>poster gallery</title>
+</head>
+<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	body{
+		background: #fff;
+		color: #555;
+		font-family: 'Avenir Next','Lantinghei SC';
+		font-size: 14px;
+		height: 1000px;
+		-webkit-font-smoothing:antialiased;
+	}
+	.wrap{
+		width: 100%;
+		height: 600px;
+		position: absolute;
+		top: 50%;
+		margin-top:-300px;
+		background-color: #333;
+		overflow: hidden;
+
+		-webkit-perspective:800px;
+		-moz-perspective:800px;
+		-ms-perspective:800px;
+	}
+	.photo{
+		left: 50%;
+		top: 50%;
+		margin: -160px 0 0 -130px;
+		width: 260px;
+		height: 320px;
+		position: absolute;
+		z-index: 1;
+		box-shadow: 0 0 1px rgba(0,0,0,.01);
+		-webkit-transition:all .6s;
+		-moz-transition:all .6s;
+		-ms-transition:all .6s;
+	}
+	.photo .side{
+		width: 100%;
+		height: 100%;
+		background-color: #eee;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 15px;
+
+		box-sizing:border_box;
+	}
+	.photo .side_front{
+	
+	}
+	.photo .side_front .img{
+		width: 100%;
+		height: 250px;
+		line-height: 250px;
+		overflow: hidden;
+	}
+	.photo .side_front .img img{
+		width: 100%;
+	}
+	.photo .side_front .caption{
+		text-align: center;
+		line-height: 50px;
+		font-size: 16px;
+	}
+	.photo .side_back{
+		font-size: 14px;
+		line-height: 1.5em;
+		color: #666;
+		display: hidden;
+	}
+	/*选中的展示海报*/
+	.photo_center{
+		left: 50%;
+		top: 50%;
+		margin: -160px 0 0 -130px;
+		z-index: 999;
+	}
+	/*负责翻转*/
+	.photo_wrap{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		-webkit-transform-style:preserve-3d;
+		-webkit-transition:all .6s;
+		-moz-transform-style:preserve-3d;
+		-moz-transition:all .6s;
+		-ms-transform-style:preserve-3d;
+		-ms-transition:all .6s;
+	}
+	.photo_wrap .side_front{
+		-webkit-transform:rotateY(0deg);
+		-moz-transform:rotateY(0deg);	
+		-ms-transform:rotateY(0deg);	
+	}
+	.photo_wrap .side_back{
+		-webkit-transform:rotateY(180deg);
+		-moz-transform:rotateY(180deg);
+		-ms-transform:rotateY(180deg);
+	}
+	.photo_wrap .side{
+		-webkit-backface-visibility:hidden;
+		-moz-backface-visibility:hidden;
+		-ms-backface-visibility:hidden;
+	}
+	.photo_front .photo_wrap{
+		-webkit-transform:rotateY(0deg);
+		-moz-transform:rotateY(0deg);
+		-ms-transform:rotateY(0deg);
+		-webkit-transform:translate(0px 0px) rotateY(0deg);
+	}
+	.photo_back .photo_wrap{
+		-webkit-transform:rotateY(180deg);
+		-moz-transform:rotateY(180deg);
+		-ms-transform:rotateY(180deg);
+	}
+	/*优化样式*/
+	.photo_wrap{
+		-webkit-transform-origin:0% 50%;
+		-moz-transform-origin:0% 50%;
+		-ms-transform-origin:0% 50%;
+	}
+	 .photo_front .photo_wrap{
+	 	-webkit-transform:translate(0px, 0px) rotateY(0deg);
+	 	-moz-transform:translate(0px, 0px) rotateY(0deg);
+	 	-ms-transform:translate(0px, 0px) rotateY(0deg);
+	 }
+	 .photo_back .photo_wrap{
+	 	-webkit-transform:translate(260px, 0px) rotateY(180deg);
+	 	-moz-transform:translate(260px, 0px) rotateY(180deg);
+	 	-ms-transform:translate(260px, 0px) rotateY(180deg);
+	 }
+	/*给控制按钮添加样式*/
+	.nav{
+		width: 80%;
+		height: 40px;
+		line-height: 40px;
+		position: absolute;
+		left: 10%;
+		bottom: 15px;
+		/*background-color: #fff;*/
+		/*opacity: .4;*/
+		z-index: 999;
+		text-align: center;
+	}
+	.nav_item{
+		width: 40px;
+		height: 40px;
+		background-color: #aaa;
+		text-align: center;
+		display: inline-block;
+		border-radius: 50%;
+		-webkit-transform:scale(.4);
+		-moz-transform:scale(.4);	
+		-ms-transform:scale(.4);	
+		transition:all .5s;	
+	}
+	.nav_current{
+		-webkit-transform:scale(.8);
+		-moz-transform:scale(.8);
+		-ms-transform:scale(.8);
+	}
+	.nav_back{
+		-webkit-transform:scale(.8);
+		-moz-transform:scale(.8);
+		-ms-transform:scale(.8);
+		background-color: #aec111;
+	}
+</style>
+<body onselectstart='return false;'>
+	<div class="wrap" id="wrap">
+		<!-- photo 负责平移和旋转 -->
+		<div class="photo photo_front" onclick="turn(this)" id="photo_{{index}}">
+			<!-- photo_wrap负责翻转 -->
+			<div class="photo_wrap">
+				<div class="side side_front">
+				<p class="img"><img src="./img/{{img}}.jpg" alt=""></p>
+				<p class="caption">{{caption}}</p>
+				</div>
+				<div class="side side_back">
+					<p class="des">{{des}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var data = [
+{ "img":"P_000" , "caption":"麦兜和妈妈" , "des":"一些描述"},
+{ "img":"P_001" , "caption":"终结者" , "des":"一些描述"},
+{ "img":"P_002" , "caption": "捉妖记" , "des":"一些描述 " },
+{ "img":"P_003" , "caption":"守望者" , "des":"一些描述"},
+{ "img":"P_004" , "caption":"触不可及" , "des":" 一些描述"},
+{ "img":"P_005" , "caption": "迷失" , "des":"一些描述 " },
+{ "img":"P_006" , "caption":"冰与火" , "des":"一些描述"},
+{ "img":"P_007" , "caption":"冰与火" , "des":"一些描述"},
+{ "img":"P_008" , "caption": "触不可及" , "des":"嘻嘻嘻嘻嘻嘻" },
+{ "img":"P_009" , "caption":"麦兜和妈妈" , "des":"一些描述"},
+{ "img":"P_010" , "caption":"终结者" , "des":"一些描述"},
+{ "img":"P_011" , "caption": "捉妖记" , "des":"一些描述 " },
+{ "img":"P_012" , "caption":"麦兜和妈妈" , "des":"一些描述"},
+{ "img":"P_013" , "caption":"终结者" , "des":"一些描述"},
+{ "img":"P_014" , "caption": "捉妖记" , "des":"一些描述 " },
+{ "img":"P_015" , "caption":"麦兜和妈妈" , "des":"一些描述"},
+{ "img":"P_016" , "caption":"终结者" , "des":"一些描述"},
+{ "img":"P_017" , "caption": "捉妖记" , "des":"一些描述 " },
+{ "img":"P_018" , "caption":"麦兜和妈妈" , "des":"一些描述"},
+{ "img":"P_019" , "caption":"终结者" , "des":"一些描述"},
+];
+		//通用函数
+		function g (ob) {
+			var method=ob.substr(0,1)=='.'?'getElementsByClassName':'getElementById';
+			return document[method](ob.substr(1));
+		}
+		// 随机生成一个值
+		function random (range) {
+			var Max=Math.max(range[0],range[1]);
+			var Min=Math.min(range[0],range[1]);
+
+			var diff = Max-Min;
+
+			var num=Math.floor(Math.random()*diff+Min);
+			return num;
+		}
+		// 模板的替换
+		var _html=[];
+		function reTemp () {
+			var template=g("#wrap").innerHTML;
+			var nav=[];
+			for(s in data){
+				var html=template.replace("{{index}}",s)
+								 .replace("{{img}}",data[s].img)
+								 .replace("{{caption}}",data[s].caption)
+								 .replace("{{des}}",data[s].des);
+				_html.push(html);
+				nav.push("<span class=' nav_item ' id='nav_"+s+"' onclick='turn(g(\"#photo_"+s+"\" ))'>&nbsp</span>")
+			}
+			g("#wrap").innerHTML=_html.join('')+" <div class='nav'>"+nav.join('')+" </div> ";
+			psort(random([0,data.length]));
+		}
+		reTemp();
+		// 翻面控制
+		function turn (elem) {
+			var cls=elem.className;
+			var n=elem.id.split("_")[1];
+			var _photos=g('.photo');
+				if(!/\s*photo_center\s*/.test(cls)){
+					return psort(n);
+				}
+			if (/photo_front/.test(cls)) {
+				cls=cls.replace(/photo_front/,'photo_back');
+				g('#nav_'+n).className+=' nav_back';
+			}else{
+				cls=cls.replace(/photo_back/,'photo_front');
+				g('#nav_'+n).className=g('#nav_'+n).className.replace(/\s*nav_back\s*/,' ');
+			}
+			return elem.className=cls;
+		}
+		// 计算左右分区的范围
+		function range () {
+			var range={left:{x:[],y:[]},right:{x:[],y:[]}};
+
+			var wrap={
+				w:g("#wrap").clientWidth,
+				h:g("#wrap").clientHeight
+			}
+			var photo={
+				w:g(".photo")[0].clientWidth,
+				h:g(".photo")[0].clientHeight
+			}
+			range.wrap=wrap;
+			range.photo=photo;
+			range.left.x=[0-photo.w,wrap.w/2-photo.w/2];
+			range.left.y=[0-photo.h,wrap.h];
+			range.right.x=[wrap.w/2+photo.w/2,wrap.w];
+			range.right.y=range.left.y;
+			return range;
+		}
+		// 排序海报
+		function psort (n) {
+			var photo=g(".photo");
+			var _photos=[];
+			for (var i = 0; i < photo.length; i++) {
+				photo[i].className=photo[i].className.replace(/\s*photo_center\s*/,'');
+				photo[i].className=photo[i].className.replace(/\s*photo_front\s*/,'');
+				photo[i].className=photo[i].className.replace(/\s*photo_back\s*/,'');
+
+				photo[i].className+=" photo_front"
+
+				photo[i].style["transform"]=photo[i].style["-webkit-transform"]='rotate(360deg) scale(1.3)';
+				photo[i].style['left']='';
+				photo[i].style['top']='';
+				_photos.push(photo[i]);
+			};
+			var photo_center=g("#photo_"+n);
+			photo_center.className += ' photo_center';
+			photo_center=_photos.splice(n,1);
+			var photo_left=_photos.splice(0,Math.ceil(photo.length/2));
+			var photo_right=_photos;
+			var ranges=range();
+			for(var s in photo_right){
+				photo_right[s].style.left=random(ranges.right.x)+'px';
+				photo_right[s].style.top=random(ranges.right.y)+'px';
+				photo_right[s].style['transform']=photo_right[s].style['-webkit-transform']="rotate("+random([-150,150])+"deg) scale(1)";
+			}
+			for(var s in photo_left){
+				photo_left[s].style.left=random(ranges.left.x)+'px';
+				photo_left[s].style.top=random(ranges.left.y)+'px';
+				photo_left[s].style['transform']=photo_left[s].style['-webkit-transform']="rotate("+random([-150,150])+"deg) scale(1)";
+			}
+			//控制按钮的处理
+			var nav=g('.nav_item');
+			for (var i = 0; i < nav.length; i++) {
+				nav[i].className = nav[i].className.replace(/\s*nav_current\s*/,' ');
+				nav[i].className = nav[i].className.replace(/\s*nav_back\s*/,' ');
+			};
+			var nav_icurrent=g("#nav_"+n);
+			nav_icurrent.className+=' nav_current';
+		}
+	</script>
+</body>
+</html>

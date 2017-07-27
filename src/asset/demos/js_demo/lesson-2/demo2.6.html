@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片列表，鼠标移入移出改变透明度</title>
+	<style>
+		body{}
+		/*inline-block存在间隙的问题，是因为文本节点引起的，在ie中正常。需要去掉文本节点，
+		或使其的[ff,chrome]font-size为0；[safari]letter-space：4px(根据字体大小定)*/
+		#wrap{width: 456px;height: 150px;border:1px solid black;margin: 0 auto;padding: 0;font-size: 0; }
+		#wrap div{width: 140px;height: 140px;margin:5px;border:1px solid #ccc;display:inline-block;padding: 0;}
+		 div img{opacity: 0.4;}
+		.current img{opacity:1;cursor: crosshair;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div>
+			<img src="1.jpg" alt="1">
+		</div>
+		<div>
+			<img src="2.jpg" alt="2">
+		</div>
+		<div>
+			<img src="3.jpg" alt="3">	
+		</div>
+	</div>
+	<script>
+		// 1.我的直接的改变对象的属性的方法，这个比较不灵活，要改的话还得修改脚本
+		var oWrap=document.getElementById('wrap');
+		var aDiv=oWrap.getElementsByTagName('div');
+		
+		// for (var i = 0; i < aDiv.length; i++) {
+		// 	aDiv[i].onmouseover=function  () {
+		// 		this.style.opacity=1;
+		// 		this.style.cursor="crosshair";
+		// 	}
+		// 	aDiv[i].onmouseout=function  () {
+		// 		this.style.opacity=0.5;
+		// 		this.style.cursor="normal";
+		// 	}
+		// };
+		// 2.借鉴的方法，通过改变元素的classname呈现出不同的样式
+		for (var i = 0; i < aDiv.length; i++) {
+			aDiv[i].className="";
+			aDiv[i].onmouseover=function  () {
+				this.className+="current";
+			}
+			aDiv[i].onmouseout=function  () {
+				this.className="";
+			}
+		};
+	</script>
+</body>
+</html>

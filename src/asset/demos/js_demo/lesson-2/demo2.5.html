@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟select控件</title>
+	<style>
+		body{background-color: #23384e;font-size: 12px;}
+		#wrap{width:350px;height: 34px;margin: 10px auto; background: url(search.jpg) 0 -34px;position: relative;}
+		#left{width: 40px;background: url(search.jpg) 0 0 no-repeat;display: inline-block;height: 100%;float: left;}
+		#selector{width: 200px;height: 22px;display: inline-block;background: url(search.jpg)0 -68px;float: left;margin-top: 5px; text-indent: 10px;line-height: 22px;color: #eee;cursor: pointer;}
+		a{background: url(search.jpg) 0 -90px;width: 80px;height:24px;display: inline-block;text-align: center;line-height: 24px;color: #333;text-decoration: none;float: left;margin: 4px 0 0 8px;}
+		a:hover{background: url(search.jpg)-80px -90px;color: #f60;}
+		#right{float: right;width: 20px;background: url(search.jpg) -180px 0;height: 100%;}
+		ul{position: absolute;list-style: none;top: 26px;left: 40px;margin: 0;padding: 0;width: 198px;border:1px solid #eee;display: none;}
+		li {background: #2b2b2b;width: 198px;margin: 0;border-bottom: 1px dashed #eee;color:#fff;text-align: left;text-indent: 8px;height: 26px;line-height: 26px;cursor: pointer;}
+		li:hover{background: #8b8b8b;color: #fff;}
+		#last{border:none;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<span id="left"></span>
+		<span id="selector">请选择游戏的名称</span>
+		<a href="javascript:;">搜 索</a>
+		<span id="right"></span>
+		<ul>
+			<li>地下城与勇士</li>
+			<li>魔兽世界（国服）</li>
+			<li>魔兽世界（台服）</li>
+			<li>热血江湖</li>
+			<li>神鬼传奇</li>
+			<li>大话西游II</li>
+			<li>QQ幻想世界</li>
+		</ul>
+	</div>
+	<script>
+		window.onload=function  () {
+			var oSelect=document.getElementById('selector'),
+				oUl=document.getElementsByTagName('ul')[0],
+				aLi=oUl.getElementsByTagName('li');
+
+
+			oSelect.onclick=function  (event) {
+				getComputedStyle(oUl,false)["display"]=="none"?
+				oUl.style.display="block":oUl.style.display="none";
+				// 阻止事件冒泡  ---重要
+				(event || window.event).cancelBubble = true
+
+			}
+
+			for (var i = 0; i < aLi.length; i++) {
+				aLi[i].onclick=function  () {
+					oSelect.innerHTML=this.innerHTML;
+					oUl.style.display="none";
+				}
+			};
+
+			// 下面这个功能忘记实现了【加上】(⊙﹏⊙)b。。。。
+			document.onclick=function  () {
+				oUl.style.display="none";
+			}
+		}
+	</script>
+</body>
+</html>

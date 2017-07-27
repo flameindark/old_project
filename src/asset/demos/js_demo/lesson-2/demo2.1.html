@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单一按钮显示/隐藏-播放列表的收缩展开</title>
+	<style>
+		#outer{width: 202px;margin: 0 auto;background-color:#ccc;border:1px solid #999;}
+		#title{height: 32px;border:1px solid  #e9edf6;padding-left: 10px;line-height: 32px;font-size: 18px;background: url(ico.gif) no-repeat;cursor: pointer;background-position:180px 15px;}
+		ul{list-style: none;margin: 0;padding:0;font-size: 12px;line-height: 25px;background-color: #eee;text-indent: 10px;}
+		a{text-decoration: none;color:#aca3ae;}
+		li:hover{background: #fff;text-decoration: underline;}
+/*		.show{display: block;}*/
+		#outer #title.open{background-position: 180px -12px;}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<div id="title">播放列表...</div>
+		<ul>
+			<li><a href="#">玩家之徒 - 蔡依林</a></li>
+			<li><a href="#">原谅我就是这样的女生 - 戴佩妮</a></li>
+			<li><a href="#">猜不透 - 丁当</a></li>
+			<li><a href="#">流年 - 王菲</a></li>
+			<li><a href="#">自导自演 - 周杰伦</a></li>
+		</ul>
+	</div>
+	<script>
+		
+		var oTitle=document.getElementById('title');
+		var oUl=document.getElementsByTagName('ul')[0];
+		// 1.自己的方法,没有使用#title的类名，而是使用了给ul加类名、、、
+		// oTitle.onclick=function  () {
+		// 	if (oUl.className=="show") {
+		// 		oUl.className="";
+		// 		this.style.backgroundPosition=180+"px "+-15+"px";
+		// 	}else{
+		// 		oUl.className="show";
+		// 		this.style.backgroundPosition=180+"px "+15+"px";
+		// 	}
+		// }
+
+		// 2.参考别人的方法，用3元表达式代替if判断，更简单
+
+	window.onload = function (){
+		oTitle.onclick = function ()
+		{
+			var style = oUl.style;
+			style.display = style.display == "none" ? "block" : "none";
+			oTitle.className = style.display == "none" ? "open" : ""
+		}
+	}
+
+	</script>
+</body>
+</html>

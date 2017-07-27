@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用循环将div变色</title>
+	<style>
+		body{text-align: center;}
+		div{width: 100px;height: 100px;background-color: #000;display: inline-block;margin-right: 10px;}
+	</style>
+</head>
+<body>
+	<button>改变div的颜色</button><br><br>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script>
+		oBtn=document.getElementsByTagName('button')[0];
+		aDiv=document.getElementsByTagName('div');
+		oBtn.onclick=function  () {
+			for (var i = 0; i < aDiv.length; i++) {
+				aDiv[i].style.background=="red"?aDiv[i].style.background="black":aDiv[i].style.background="red";
+			};
+		}
+	</script>
+</body>
+</html>

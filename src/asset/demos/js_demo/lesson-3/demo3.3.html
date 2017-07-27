@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自动改变方向一幻灯片效果</title>
+	<style>
+		body{background: #000;}
+		#wrap{width: 600px;height: 220px;margin: 10px auto;border-radius: 8px;background: #fff;border:10px solid #fff;position: relative;}
+		#banner{list-style: none;margin: 0px auto;padding: 0;}
+		#banner:after{content: ".";display: block;clear: both;visibility: hidden;zoom:1;height: 0;}
+		#banner li{float: left;display: none;}
+		#banner li.active{display: block;}
+		#banner li img{width: 600px;height: 220px;}
+		#control{position: absolute;list-style: none;width: 190px;height: 30px;right: 10px;bottom:4px;padding: 0;margin: 0}
+		#control li{float: left;margin-left:8px;height: 30px;width: 30px;background: #ff6600;border-radius: 15px; color:#fff;font-weight: bold;line-height: 30px;text-align: center;}
+		#control li.active{background: #aa5500}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="banner">
+			<li><img src="banner1.jpg" alt="1"></li>
+			<li><img src="banner2.jpg" alt="2"></li>
+			<li><img src="banner3.png" alt="3"></li>
+			<li><img src="banner4.jpg" alt="4"></li>
+			<li><img src="banner5.jpg" alt="5"></li>
+		</ul>
+		<ul id="control">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	<script>
+	//自己实现的功能，不能实现淡入淡出。。要实现淡入淡出要在Play函数中加一些透明度效果。
+		var oBanner=document.getElementById('banner'),
+			oControl=document.getElementById('control'),
+			aBli=oBanner.getElementsByTagName('li'),
+			aImg=oBanner.getElementsByTagName('img'),
+			aCli=oControl.getElementsByTagName('li'),
+			timer=play=null,
+			order=1;
+		// 定义播放的函数，通过传入的参数来播放这个索引值的幻灯片
+		function Play (j) {
+			var index=j;
+			var alpha=0;
+
+			for (var i = 0; i < aCli.length; i++) {
+				aCli[i].className="";
+				aBli[i].className="";
+				aImg[i].style.opacity = 0;
+				aImg[i].style.filter = "alpha(opacity=0)";
+			};
+				aCli[j].className="active";
+				aBli[j].className="active";
+			clearInterval(timer);			
+	
+				
+			timer = setInterval(function () {
+				alpha += 2;
+				alpha > 100 && (alpha =100);
+				aImg[index].style.opacity = alpha / 100;
+				aImg[index].style.filter = "alpha(opacity = " + alpha + ")";
+				alpha == 100 && clearInterval(timer)
+			},20);
+		}	
+
+		// 获取当前的播放幻灯片的索引值
+		function NowPlay () {
+			for (var i = 0; i < aCli.length; i++) {
+				if (aCli[i].className=="active") 
+					return i;
+			};
+		}
+
+		// 添加控制区的鼠标移入控制播放功能，以及暂停功能
+		for (var i = 0; i < aCli.length; i++) {
+			aCli[i].index=i;
+			aCli[i].onmouseover=function  () {
+				Play(this.index);
+			}
+		};
+		function autoPlay () {
+			play=setInterval(function  () {
+				//在这里加了两个状态的变量，通过改变变量的值来达到切换播放顺序。
+				//初始值为1，所以一开始是顺播。下面定义顺播的操作以及生命时候结束。
+				if (order) {
+					Play(NowPlay()+1);
+					if (NowPlay()>3)	 	
+						order=0;		
+				}
+				// 下面的是方向播放
+				else{
+					Play(NowPlay()-1);
+					if (NowPlay()==0)
+						order=1;
+				}
+			},1000)
+		}
+		Play(0);
+		autoPlay();
+		oBanner.onmouseover=function  () {
+			clearInterval(play);
+		}
+		oBanner.onmouseout=function  () {
+			autoPlay();
+		}
+	</script>
+</body>
+</html>

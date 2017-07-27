@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件练习</title>
+	<style>
+		body{text-align:center;}
+	</style>
+</head>
+<body>
+	<input type="button" value="毫无用处的按钮">
+	<input type="button" value="点击绑定click事件">
+	<input type="button" value="解除绑定">
+	<script>
+	//DOM 0级的处理方法如下。
+		// window.onload=function  () {
+		// 	var aInput=document.getElementsByTagName('input');
+
+		// 	aInput[1].onclick=function  () {
+		// 		aInput[0].value="我可以点击了";
+		// 		aInput[0].onclick=function  () {
+		// 			alert("事件绑定成功");
+		// 		}
+		// 	}
+		// 	aInput[2].onclick=function  () {
+		// 		aInput[0].value="毫无用处的按钮";
+		// 		aInput[0].onclick=null;
+		// 	}
+		// }
+	// DOM 2级的处理如下
+		window.onload=function  () {
+			var aInput=document.getElementsByTagName('input');
+			
+			var temp=function  () {
+						alert("事件绑定成功");
+					};
+	// 为非IE准备的代码，但这样写有很多重复的代码，可以通过更好的办法将他们整合调用。
+			if (aInput[0].addEventListener) {
+				// 给第二个按钮被点击时需要完成的dom操作，以及给第一个按钮绑定事件
+				aInput[1].addEventListener("click",function  () {
+					aInput[0].value="我可以点击了";
+					aInput[0].addEventListener("click",temp);
+				},false)
+				// 在第三个按钮按下时解除第一个按钮的绑定事件
+				aInput[2].addEventListener("click",function  () {
+					aInput[0].value="毫无用处的按钮";
+					aInput[0].removeEventListener("click",temp)
+				},false)
+			}
+			// 为IE做的兼容代码。
+			else{
+				aInput[1].attachEvent("onclick",function  () {
+					aInput[0].value="我可以点击了";
+					aInput[0].attachEvent("onclick",temp);
+				})
+				aInput[2].attachEvent("onclick",function  () {
+					aInput[0].value="毫无用处的按钮";
+					aInput[0].detachEvent("onclick",temp)
+				})
+			}
+		}
+
+		// 我的代码只是能够使用，但是太不精练，比较好的代码如下
+		// 他使用了一个EvenUtil对象来对不同的情况用不同的方法来进行分别，调用时只需调用这些方法就行
+		// var EventUtil = {
+		// 	addHandler: function (oElement, sEvent, fnHandler) {
+		// 		oElement.addEventListener ? oElement.addEventListener(sEvent, fnHandler, false) : oElement.attachEvent("on" + sEvent, fnHandler)	
+		// 	},
+		// 	removeHandler: function (oElement, sEvent, fnHandler) {
+		// 		oElement.removeEventListener ? oElement.removeEventListener(sEvent, fnHandler, false) : oElement.detachEvent("on" + sEvent, fnHandler)
+		// 	},
+		// 	addLoadHandler: function (fnHandler) {
+		// 		this.addHandler(window, "load", fnHandler)
+		// 	}
+		// };
+		// EventUtil.addLoadHandler(function () {
+		// 	var aBtn = document.getElementsByTagName("input");
+			
+		// 	//为第一个按钮添加绑定事件
+		// 	EventUtil.addHandler(aBtn[1], "click", function () {
+		// 		EventUtil.addHandler(aBtn[0], "click", fnHandler);	
+		// 		aBtn[0].value = "我可以点击了"
+		// 	});
+			
+		// 	//解除第一个按钮的绑定事件
+		// 	EventUtil.addHandler(aBtn[2], "click", function () {
+		// 		EventUtil.removeHandler(aBtn[0], "click", fnHandler);
+		// 		aBtn[0].value = "毫无用处的按钮"	
+		// 	});
+			
+		// 	//事件处理函数
+		// 	function fnHandler ()
+		// 	{
+		// 		alert("事件绑定成功！")	
+		// 	}	
+		// })
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数传参改变div属性值</title>
+	<style>
+		body{text-align: center;font-size: 12px;}
+		label{display: block;margin-bottom: 15px;}
+		div{background-color: #000;color: #fff;width: 300px;height: 300px;margin: 0 auto;line-height: 40px;font-size: 14px;}
+	</style>
+</head>
+<body>
+	<label for="attr">属性名:<input type="text"></label>
+	<label for="value">属性值:<input type="text"></label>
+	<button>确定</button>
+	<button>重置</button>
+	<div>在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果。</div>
+	<script>
+		var oAttr=document.getElementsByTagName('input')[0];
+		var oValue=document.getElementsByTagName('input')[1];
+		var oSure=document.getElementsByTagName('button')[0];
+		var oReset=document.getElementsByTagName('button')[1];
+		var oDiv=document.getElementsByTagName('div')[0];
+
+		// 1.自己的方法，实现不了。。。只能让重置完成退后一步的功能。。。。汗
+		// function getStyle (obj,attr) {
+		// 	if (obj.currentStyle) {
+		// 		return obj.currentStyle[attr];
+		// 	}else{
+		// 		return window.getComputedStyle(obj,false)[attr];
+		// 	}
+		// }
+		// var t=oSure.onclick=function  () {
+		// 	var initial=getStyle(oDiv,oAttr.value);
+		// 	oDiv.style[oAttr.value]=oValue.value;
+		// 	oReset.onclick=function() {
+		// 	oDiv.style[oAttr.value]=initial;
+		// }	
+		// }
+		
+		// 2.借鉴的方法
+		var changeStyle=function  (ele,name,value) {
+			ele.style[name]=value;
+		}
+
+		oSure.onclick=function  () {
+			changeStyle(oDiv,oAttr.value,oValue.value);
+		}
+		oReset.onclick=function  () {
+			//利用js设置的是行间的样式来取消自己设置的样式。。。。。。
+			oDiv.removeAttribute("style");
+		}
+	
+	</script>
+</body>
+</html>

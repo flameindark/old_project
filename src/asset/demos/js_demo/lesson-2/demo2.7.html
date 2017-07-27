@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易选项卡</title>
+	<style>
+		ul{margin: 0 auto;width: 400px;line-height: 25px;font-size: 12px;border:1px solid #000;padding:10px 0;display: none;border-top: none;}
+		#title{width: 400px;height: 25px;background-color: #000;color:#fff;margin: 0 auto;list-style: none;padding: 0;display: block;border-top: 1px solid #000;}
+		#title li{width: 70px;height: 25px;float: left;margin: 0;text-align: center;font-size: 14px;line-height: 25px}
+		#title .active{background-color: #ccc;}
+		ul li{margin-left: 40px;}
+		
+		.current{display: block;}
+	</style>
+</head>
+<body>
+	<ul id="title">
+		<li class="active">第一课</li>
+		<li>第二课</li>
+		<li>第三课</li>
+	</ul>
+	<ul id="div1" class="current">
+		<li>网页特效原理分析</li>
+		<li>响应用户操作</li>
+		<li>提示框效果</li>
+		<li>事件驱动</li>
+		<li>元素属性操作</li>
+		<li>动手编写第一个JS特效</li>
+		<li>引入函数</li>
+	</ul>
+	<ul id="div2">
+		<li>改变网页背景颜色</li>
+		<li>函数传参</li>
+		<li>高重用性函数的编写</li>
+		<li>循环及遍历操作</li>
+		<li>循环及遍历操作</li>
+	</ul>
+	<ul id="div3">
+		<li>JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源</li>
+		<li>JavaScript组成：ECMAScript、DOM、BOM，JavaScript兼容性来源</li>
+		<li>动手编写第一个JS特效</li>
+		<li>动手编写第一个JS特效</li>
+	</ul>
+	<script>	
+		var oTitle=document.getElementById('title');
+		var aTopic=oTitle.getElementsByTagName('li');
+		var aUl=document.getElementsByTagName('ul');
+
+		for (var i = 0; i < aTopic.length; i++) {
+			aTopic[i].index=i;
+			aTopic[i].onmouseover=function  () {
+				for (var j = 0; j < aTopic.length; j++) {
+					aTopic[j].className="";
+					aUl[j+1].className="";
+				};
+				this.className+="active";
+				aUl[this.index+1].className+="current"
+			}
+		};
+
+	</script>
+</body>
+</html>

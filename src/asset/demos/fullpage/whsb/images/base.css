@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+body,h1,h2,h3,h4,h5,h6,img,p,dl,dt,dd,li,ul,input { margin: 0;padding: 0 }ul { list-style: none; }body,button,input,select,textarea{font:12px/1.5 Tahoma,arial,'Hiragino Sans GB','microsoft yahei',\5b8b\4f53}a{text-decoration: none;color: #464646;}img{border: none;}.clearfix:after{content:'\20';display:block;height:0;clear:both}.clearfix{*zoom:1}
+body { background:#fff;color:#464646; }
+input:focus { outline: none; }
+img { vertical-align: bottom; }
+.g-in { width:1000px; margin:0 auto; }.g-in:after{content:'\20';display:block;height:0;clear:both}.g-in{zoom:1}
+.wrapper { position:relative; width:100%; margin:0 auto; overflow:hidden; }
+
+/*头部区域*/
+.header { background: #f6f6f6; }
+/*logo区*/
+.logo-area { position: relative;height: 113px;background: none; }
+.logo { float: left;margin-top: 13px; }
+.logo .logo-img { float: left;width: 68px;height: 88px; }
+.logo .logo-des { float: left;padding: 12px 0 0 90px;height: 88px;text-align: center;background: url(logo.png) no-repeat; }
+.logo .logo-des .hd { font-size: 32px;font-weight: bold; }
+.logo .logo-des .bd { font-size: 14px;font-weight: normal;color: #959595; }
+.search { float: left;margin: 45px 0 0 136px;border: 1px solid #e2e2e2; }
+.search .search-in { width: 180px;height: 31px;padding: 2px 2px 2px 30px ;border: none;background: url(search_ico.png) no-repeat 8px 10px; }
+.search .search-submit { width: 46px;height: 35px;background: #c2c2c2;color: #fff;border: none;font-size: 12px;vertical-align: bottom; }
+.contact { position: absolute;top: 44px;right: 0;padding-left: 51px;background: url(tel_ico.png) no-repeat; }
+.contact span { display: block;color: #d82128;font-size: 18px;font-weight: bold; }
+
+/*nav区*/
+.nav { background: #fff;height: 78px; }
+.nav li { float: left;width: 124px;border-right: 1px solid #e1e1e1;text-align: center;font-size: 13px;margin-top: 29px; }
+.nav li.nav-last { border: none; }
+
+/*footer区*/
+.g-network { background: #252525;min-height: 182px;padding:40px 0 33px 0;color:#959595; }
+.m-logo { float: left;width: 118px;height: 108px;border-right: 1px solid #464646; }
+.m-address { float: left;margin-left: 50px; }
+.m-address dt { font-size: 14px;color: #fff;margin-bottom: 4px; }
+.m-address dd { line-height: 21px; }
+.m-tel { float: left;margin-left: 70px;padding: 35px 0;text-align: center; }
+.m-tel .num { font-size: 18px;color: #fff; }

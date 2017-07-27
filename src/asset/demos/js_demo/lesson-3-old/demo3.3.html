@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.3</title>
+	<style>
+		body{text-align: center;}
+	</style>
+</head>
+<body>
+	<button>0</button>
+	<script>
+	// 自己写的，比较简单，用的获取文本节点的方法是innerHTML，还可以使用childNodes[0]的nodeValue来获得。
+		var oBtn=document.getElementsByTagName('button')[0];
+
+		oBtn.onclick=function  () {
+			this.innerHTML=parseInt(this.innerHTML)+1;
+			alert(this.innerHTML);
+		}
+
+
+		// 例子中给的参考脚本，他不是利用button的innerHTML来写的，各有各的好处
+		// window.onload = function ()
+		// {
+		// 	var aBtn = document.getElementsByTagName("input")[0];
+		// 	var i = 0;
+			
+		// 	aBtn.onclick = function ()
+		// 	{
+		// 		aBtn.value = ++i;	
+		// 		alert(i)
+		// 	}	
+		// }
+
+	</script>
+</body>
+</html>

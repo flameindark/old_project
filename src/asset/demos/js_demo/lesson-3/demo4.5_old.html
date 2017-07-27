@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.5</title>
+	<style>
+		div{width: 400px;height: 200px;background-color: rgb(243,241,223);border:1px solid orange;margin: 20px auto;}
+		span{margin: 10px 0 0 10px;background: orange;display: inline-block;padding: 4px;color: #fff;font-weight: bold;font-size: 14px;cursor: pointer; }
+	</style>
+</head>
+<body>
+	<div>
+		<span>getStyle</span><span>
+		setStyle</span><span>
+		deafualtStyle</span>
+	</div>
+	<script>
+		// 自己写的代码，警告较多，还有一个功能没能实现，在鼠标点击时当前的span加一个border而
+		// 当鼠标点了其他地方该border消失。我自己的思路感觉会有点麻烦，应该有更好的方法，所以没实现。
+
+		// (⊙﹏⊙)b好吧，那个功能貌似是按钮默认就有的，他用的是input元素而我用的是span
+		// 并且他的实现是利用对象来传递值，而我是利用数组。。。所以他用一个函数解决了设置和获取的问题但调用
+		// 起来麻烦。 个人觉得还是自己的好点（臆测的O(∩_∩)O~）
+		
+		var oDiv=document.getElementsByTagName('div')[0],
+			aSpan=document.getElementsByTagName('span'),
+			attr=[],
+			val=[];
+
+		// 获取样式的函数，支持一个对象的多个样式的获取
+		function getStyle (target,attr) {
+			var t=[];
+			// 遍历传入的样式
+			 for(i in attr){
+			 	// 对不同的浏览器的兼容写法，获取样式的值+样式，传入数组
+			 	var temp=window.getComputedStyle?getComputedStyle(target,null)[attr[i]]:
+				target.currentStyle[attr]
+				t.push(attr[i]+"="+temp);
+			}
+			// 返回数组，每项为attr="..."的形式
+			return t;
+		}
+		// 设置样式，支持一个对象的多个样式的设置
+		function setStyle (target,attr,val) {
+			for(i in attr){
+				console.log(i);
+				target.style[attr[i]]=val[i];
+			}
+		}
+		// 下面为三个span添加点击对象
+		aSpan[0].onclick=function  () {
+			//这里利用函数输出的是数组对它进行join操作，转换成字符串，使它的每一项占一行。
+			// \r为空一行。\n相当于空格
+			alert(getStyle(oDiv,["width","height","backgroundColor"]).join("\r\n"));
+		}
+		aSpan[1].onclick=function  () {
+			setStyle(oDiv,["width","height","backgroundColor","border"],
+				["330px","100px","rgb(239,248,255)","1px solid blue"])
+			for(i in aSpan){
+				setStyle(aSpan[i],["backgroundColor"],["blue"]);
+			}
+		}
+		aSpan[2].onclick=function  () {
+			if (oDiv.style) 
+			oDiv.removeAttribute('style');
+			for(i in aSpan){
+				if (aSpan[i].style) 
+				aSpan[i].removeAttribute('style');
+			}
+		}
+
+	</script>
+</body>
+</html>

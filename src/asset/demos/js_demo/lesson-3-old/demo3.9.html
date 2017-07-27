@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+	<title>3.8</title>
+	<style>
+		div{width: 400px;margin: 0 auto;font-size: 14px;padding: 20px 0 ;background: #000;color: #fff;text-align: center;line-height: 26px;}
+		span{display:inline-block;width: 40px;font-size: 20px;height: 26px;background: #eee;margin: 0;line-height: 26px;color:#000;border:2px solid #ddd;}
+		.btn{width: 283px;height: 48px;background: url(btn-1.png) no-repeat 0 0;margin-top: 10px;padding: 0}
+		#wrap .active{background-position: 0 -50px;} 
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<span>1</span>分钟
+		<span>30</span>秒
+		<div class="btn"></div>
+	</div>
+	<script>
+		// 自己写的代码，中间不知道怎么将个位数转换成两位表示，并且在秒位到1时下一秒就会自动变为60而不会有0；
+		var oBtn=document.getElementsByTagName('div')[1],
+			oSpan=document.getElementsByTagName('span'),
+			timer=null;//定义计时器的名字前要先定义它为空。
+
+		function updateTime () {
+				if (/active/.test(oBtn.className)){
+						oSpan[1].innerHTML=parseInt(oSpan[1].innerHTML)-1;
+				} 
+				if(parseInt(oSpan[1].innerHTML)==0){
+					if (parseInt(oSpan[0].innerHTML)==0){
+						clearInterval(timer);
+						return ;
+					} 
+					else{
+					oSpan[0].innerHTML=parseInt(oSpan[0].innerHTML)-1;
+					oSpan[1].innerHTML=60;
+					}
+				}	
+			}
+		oBtn.onclick=function  () {
+			if (/active/.test(oBtn.className)) 
+				oBtn.className="btn";
+			else oBtn.className+=" active";
+
+		 	timer=setInterval(updateTime,1000);
+		 	updateTime();
+		} 
+
+		//给出的标准脚本。。。好吧，挺长的。他比我多了一个format函数来替代个位数使其十位为0；
+		// 而且他通过对/和%的熟练使用使计数变的更科学
+
+		// window.onload = function ()
+		// {
+		// 	var oCountDown = document.getElementById("countdown");	
+		// 	var aInput = oCountDown.getElementsByTagName("input")[0];
+		// 	var timer = null;
+			
+		// 	aInput.onclick = function ()
+		// 	{
+		// 		this.className == "" ? (timer = setInterval(updateTime, 1000), updateTime()) : (clearInterval(timer));
+		// 		this.className = this.className == '' ? "cancel" : '';	
+		// 	};
+			
+		// 	function format(a)
+		// 	{
+		// 		return a.toString().replace(/^(\d)$/,'0$1')
+		// 	}
+			
+		// 	function updateTime ()
+		// 	{
+		// 		var aSpan = oCountDown.getElementsByTagName("span");
+		// 		var oRemain = aSpan[0].innerHTML.replace(/^0/,'') * 60 + parseInt(aSpan[1].innerHTML.replace(/^0/,''));
+		// 		if(oRemain <= 0)
+		// 		{
+		// 			clearInterval(timer);
+		// 			return
+		// 		}
+		// 		oRemain--;
+		// 		aSpan[0].innerHTML = format(parseInt(oRemain / 60));
+		// 		oRemain %= 60;
+		// 		aSpan[1].innerHTML = format(parseInt(oRemain));
+		// 	}
+		// }
+
+	</script>
+</body>
+</html>

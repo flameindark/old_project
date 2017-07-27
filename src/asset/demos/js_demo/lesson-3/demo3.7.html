@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>星级评分</title>
+	<style>
+		body{text-align: center;font-size: 13px;color: #666;}
+		#wrap{width: 600px;margin: 0px auto;position: relative;}
+		span,ul {float: left;}
+		#star{display: inline-block;margin: 0;padding: 0 5px;line-height: 23px;}
+		#star li{background: url(star.png) no-repeat ;width: 20px;height: 20px;float: left;margin-right: 3px;list-style: none;}
+		#star li.on{background: url(star.png) no-repeat 0 -28px;}
+		strong{color: orange;font-weight: bold;}
+		p{display: none;border:1px solid #ddd;position: absolute;width: 150px;border-radius: 5px;top:10px;left: 0px;padding: 5px;word-break:break-all;text-align: left;}
+		p span{width: 100%;display: inline-block;color: orange;font-weight: bold;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<span>点击星星就能打分</span> 
+		<ul id="star">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		</ul>
+		<span></span>
+		<p></p>
+	</div>
+	<script>
+	//1.自己做的脚本，用DOM 0 级事件解决的，功能都实现，但是逻辑有点绕，..
+		// 利用了一个数组将描述的每种等级存为一个对象，在事件触发时调用
+		oSpan=document.getElementsByTagName('span')[1];
+		window.onload=function  () {
+			var aLi=document.getElementsByTagName('li'),
+				oSpan=document.getElementsByTagName('span')[1],
+				oP=document.getElementsByTagName('p')[0],
+				aDes=[{level:"1分 ",sum:"很不满意",des:"(差得太离谱，与卖家描述的严重不符，非常不满)"},{level:"2分 ",sum:"不满意",des:"(部分有破损，与卖家描述的不符，不满意)"},{sum:"一般",level:"3分 ",des:"(质量一般，没有卖家描述的那么好)"},{sum:"满意",level:"4分 ",des:"(质量不错，与卖家描述的基本一致，还是挺满意的)"},{sum:"非常满意",level:"5分 ",des:" (质量非常好，与卖家描述的完全一致，非常满意)"}];
+
+			for (var i = 0; i < aLi.length; i++) {
+					aLi[i].index=i;
+					// 给每个星星加鼠标移入时,使它其他的不亮,只有该星星之前的星星亮
+					aLi[i].onmouseover=function  () {
+						// 先初始化为全灭
+						for (var i = 0; i < aLi.length; i++) {
+							aLi[i].className="";
+						};
+						// 该鼠标移入之前的星星全亮
+						for (var j = 0; j<=this.index; j++) {
+							aLi[j].className="on";
+						};
+						// 在鼠标移入时使oP显示，并能根据位置不同移动
+						oP.innerHTML="<span>"+aDes[this.index].level+aDes[this.index].sum+"</span>"+aDes[this.index].des.replace(/\(/,"").replace(/\)/,"");
+						oP.style.display="inline-block";
+						oP.style.left=40+this.index*20+"px";//这里用offsetLeft更好，而不是用40这个固定值。。
+					}
+					// 在鼠标移出时将所有的星星灭掉
+					aLi[i].onmouseout=function  () {
+						
+						// 下面判断是否已经被点击过了
+						if (oSpan.innerHTML=="") {
+							// 没点击过，直接移出时全灭
+							for (var i = 0; i < aLi.length; i++) {
+							aLi[i].className="";
+						};
+						}else{
+							// 判断点击的是个星星，在移出时恢复到那个位置
+							var temp=parseInt(oSpan.innerHTML.match(/\d/));
+							for (var i = 0; i <aLi.length; i++) {
+								if (i<temp) 
+								aLi[i].className="on";
+								else aLi[i].className="";
+							};
+						}
+						// 鼠标移出，隐藏oP
+						oP.style.display="none";
+					}
+					// 在鼠标点击星星时使之前的星星都亮,并且移除鼠标移出的事件,使鼠标移出也能保持星星是亮的
+					// 同时改变后面的说明的文字
+					aLi[i].onclick=function  () {
+						for (var j = 0; j<=this.index; j++) {
+							aLi[j].className="on";
+						};
+						aLi[this.index].onmouseout=null;
+						oP.style.display="none";
+						oSpan.innerHTML="<strong>"+aDes[this.index].level+"</strong>"+aDes[this.index].des;
+					}
+				};	
+		}
+	//2.给出的标准脚本，他的数组跟我的定义有出入，它这种就利用字符数组然后通过特殊符号分
+	// 割的再利用正则匹配方法比较巧妙值得学习..并且他利用了两个全局变量记录了在两种情况下星星会亮。
+		// 	window.onload = function ()
+		// {
+		// 	var oStar = document.getElementById("star");
+		// 	var aLi = oStar.getElementsByTagName("li");
+		// 	var oUl = oStar.getElementsByTagName("ul")[0];
+		// 	var oSpan = oStar.getElementsByTagName("span")[1];
+		// 	var oP = oStar.getElementsByTagName("p")[0];
+		// 	var i = iScore = iStar = 0;
+		// 	var aMsg = [
+		// 				"很不满意|差得太离谱，与卖家描述的严重不符，非常不满",
+		// 				"不满意|部分有破损，与卖家描述的不符，不满意",
+		// 				"一般|质量一般，没有卖家描述的那么好",
+		// 				"满意|质量不错，与卖家描述的基本一致，还是挺满意的",
+		// 				"非常满意|质量非常好，与卖家描述的完全一致，非常满意"
+		// 				]
+			
+		// 	for (i = 1; i <= aLi.length; i++)
+		// 	{
+		// 		aLi[i - 1].index = i;
+		// 		//鼠标移过显示分数
+		// 		aLi[i - 1].onmouseover = function ()
+		// 		{
+		// 			fnPoint(this.index);
+		// 			//浮动层显示
+		// 			oP.style.display = "block";
+		// 			//计算浮动层位置
+		// 			oP.style.left = oUl.offsetLeft + this.index * this.offsetWidth - 104 + "px";
+		// 			//匹配浮动层文字内容
+		// 			oP.innerHTML = "<em><b>" + this.index + "</b> 分 " + aMsg[this.index - 1].match(/(.+)\|/)[1] + "</em>" + aMsg[this.index - 1].match(/\|(.+)/)[1]
+		// 		};
+		// 		//鼠标离开后恢复上次评分
+		// 		aLi[i - 1].onmouseout = function ()
+		// 		{
+		// 			fnPoint();
+		// 			//关闭浮动层
+		// 			oP.style.display = "none"
+		// 		};
+		// 		//点击后进行评分处理
+		// 		aLi[i - 1].onclick = function ()
+		// 		{
+		// 			iStar = this.index;
+		// 			oP.style.display = "none";
+		// 			oSpan.innerHTML = "<strong>" + (this.index) + " 分</strong> (" + aMsg[this.index - 1].match(/\|(.+)/)[1] + ")"
+		// 		}
+		// 	}
+		// 	//评分处理
+		// 	function fnPoint(iArg)
+		// 	{
+		// 		//分数赋值
+		// 		iScore = iArg || iStar;
+		// 		for (i = 0; i < aLi.length; i++) aLi[i].className = i < iScore ? "on" : "";	
+		// 	}
+		// };
+	</script>
+</body>
+</html>

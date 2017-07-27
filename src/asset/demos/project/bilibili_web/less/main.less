@@ -1,0 +1,462 @@
+@r : 34.5rem;
+
+/**
+一些移动端web通用样式
+**/
+a,input,button {
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+input,button {
+  -webkit-appearance:none;
+  border-radius: 0;
+}
+
+body {
+  user-select:none;
+}
+
+body * {
+  margin: 0;
+  -webkit-user-select:none;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  background-color: #f4f4f4;
+  font: 1rem/1.5 'Microsoft YaHei', 'Droid Sans Fallback', SimHei, Arial, Helvetica, tahoma, sans-serif;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color:#444;
+}
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display:table;
+}
+
+.clearfix:after{
+	clear:both;
+}
+
+.icons {
+  display: inline-block;
+  vertical-align: top;
+  background: url(../img/ui_2.png) center no-repeat;
+  background-size: 400/@r;
+}
+/**
+  搜索部分
+**/
+.nav-bar {
+  width: 100%;
+  height: 40/@r;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-right: 8/@r;
+  box-sizing: border-box;
+  border-bottom: 1/@r solid #e7e7e7;
+  .nav-wrap{
+      width: 100%;
+      height: 100%;
+      a {
+        display: block;
+        float: left;
+      }
+      .logo {
+        background: url("../img/logo.png") no-repeat;
+        background-size: 63/@r  28/@r;
+        width: 63/@r;
+        height: 28/@r;
+        margin: 6/@r 0 0 18/@r;
+      }
+      .cell {
+        float: right;
+        display: block;
+        width: 44/@r;
+        height: 100%;
+        margin-right: 5/@r;
+        position: relative;
+        i{
+          display: block;
+          position: absolute;
+          width: 22/@r;
+          height: 22/@r;
+          left: 11/@r;
+          top: 11/@r;
+          background: url("../img/ui_3@2x.png") no-repeat;
+          background-size: 274/@r 228/@r;
+        }
+        .search-icon {
+          background-position: 0 -206/@r;
+        }
+        .history-icon {
+          background-position: -22/@r -206/@r;
+        }
+      }
+
+  }
+}
+
+/**
+主要内容部分
+**/
+.container-wrap{
+  padding-top: 40/@r;
+  overflow-x: hidden;
+
+
+  /**
+  导航菜单部分
+  **/
+  .menu-nav {
+
+    padding: 0 8/@r;
+    background-color: #fff;
+
+    .menu-bar {
+
+      padding: 0;
+      display: -webkit-box;
+      display: flex;
+      justify-content:space-between;
+      -webkit-box-pack:justify;
+      align-items:center;
+      -webkit-box-align:center;
+      height: 41/@r;
+      line-height: 41/@r;
+
+      li {
+        display: block;
+        width: 60/@r;
+        height: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 16/@r;
+
+        a {
+          display: block;
+          color: #444;
+        }
+
+      }
+
+      .on {
+        border-bottom: 4px solid #de698c;
+      }
+
+    }
+  }
+
+
+  /**
+  幻灯片部分
+  **/
+  .slider-wrapper{
+    height: 130/@r;
+    position: relative;
+    margin-bottom: 12/@r;
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      .swiper-wrapper {
+        .swiper-slide {
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+          background-color: #fff;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .swiper-pagination-bullet {
+        width: 6/@r;
+        height: 6/@r;
+        background-color: rgb(255, 255, 255);
+        border-radius: 3px;
+        margin: 3px !important;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+          background-color: #de698c;
+      }
+    }
+  }
+
+  /**
+  视频列表区
+  **/
+  .container-item{
+    margin-bottom: 12/@r;
+    * {
+        box-sizing: border-box;
+    }
+    .text-overflow {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .bilibili-index-sprite {
+      background-image: url("../img/index@2x.png");
+      background-size: 30/@r 462/@r;
+      width: 20/@r;
+      height: 20/@r;
+      display: inline-block;
+      position: absolute;
+      top: 12/@r;
+      left: 0;
+    }
+
+    background-color: #fff;
+    .item-header {
+      display: block;
+      padding: 0 12/@r;
+      height: 44/@r;
+      line-height: 44/@r;
+      width: 100%;
+      .left {
+        float: left;
+        .bilibili-index-hot {
+          background-position: -5/@r -215/@r;
+        }
+      }
+      .right {
+        float: right;
+        .bilibili-index-ranking {
+          background-position: -5/@r -65/@r;
+        }
+        .bilibili-index-arrow {
+          background-position: -5/@r -395/@r;
+          left: auto;
+          right: 0;
+        }
+      }
+      .left,.right {
+        h3 {
+          font-size: 14/@r;
+          color: #444;
+          font-weight: normal;
+          padding-left: 25/@r;
+          position: relative;
+
+        }
+      }
+      .hot h3{
+        color: #ffb30f !important;
+      }
+    }
+    .item-content {
+      padding: 0 6/@r;
+
+      .item-list {
+        padding: 0 6/@r 24/@r;
+        display: inline-block;
+        width: 50%;
+        @media screen and (min-width: 601px){
+            width: 25%;
+            padding-bottom: 5/@r;
+          }
+
+        .item {
+          display: block;
+          width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+            border-radius: 5/@r;
+          }
+        }
+
+        .info {
+           padding-top: 5/@r;
+           font-size: 13/@r;
+           line-height: 1.4;
+           display: block;
+           position: relative;
+           .left {
+             float: left;
+           }
+           .meta {
+             .cell{
+               position: relative;
+               width: 50%;
+               font-size: 13/@r;
+               color: #999;
+               padding-left: 18/@r;
+               text-overflow: ellipsis;
+               overflow: hidden;
+               white-space: nowrap;
+               .bilibili-index-play {
+                 background-position: -5/@r -425/@r;
+                 width: 15/@r;
+                 height: 11/@r;
+                 top: 50%;
+                 margin-top: -6/@r;
+               }
+               .bilibili-index-danmu {
+                 background-position: -5/@r -446/@r;
+                 width: 15/@r;
+                 height: 11/@r;
+                 top: 50%;
+                 margin-top: -6/@r;
+               }
+             }
+
+           }
+
+        }
+      }
+    }
+  }
+
+  /**
+  直播推荐
+  **/
+  .live-container {
+    .item-header {
+      .left {
+        .bilibili-index-live {
+            background-position:-5/@r -155/@r !important;
+        }
+      }
+      .right {
+        h3 {
+          padding-left: 0;
+          padding-right: 25/@r;
+          color: #999;
+          position: relative;
+
+        }
+      }
+    }
+    .info {
+      position: relative;
+      .avatar {
+        position: absolute;
+        width: 42/@r;
+        height: 42/@r;
+        border-radius: 21/@r;
+        border: 2px solid #fff;
+        top: -30/@r;
+        left: 7/@r;
+        z-index: 10;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      .meta {
+        .user-info {
+          padding-left: 56/@r;
+          .desp {
+            color: #999;
+          }
+        }
+        .online {
+          position: absolute;
+          top: 20/@r;
+          width: 48/@r;
+          padding: 0 1/@r;
+          color: #fff;
+          background-color: #ccc;
+          border-radius: 6/@r;
+          text-align: center;
+          height: 20/@r;
+          line-height: 20/@r;
+          font-size: 12/@r;
+        }
+      }
+    }
+  }
+  /**
+  其他类似栏目
+  **/
+  .ad-container {
+    .item-header {
+      .right {
+        h3 {
+          padding-left: 0;
+          padding-right: 25/@r;
+          color: #999;
+          position: relative;
+
+        }
+      }
+    }
+    .bilibili-index-advertise{
+      width: 20/@r;
+      height: 20/@r;
+      background-size: 20/@r 20/@r !important;
+      background-image: url(../img/index_advertise.png)!important;
+    }
+  }
+}
+
+/**
+  底部footer
+**/
+footer {
+  font-size: 13px;
+  color: #aaa;
+  padding-bottom: 16/@r;
+  p {
+    margin: 13/@r 0;
+    text-align: center;
+    .bottom-btn {
+      height: 20/@r;
+      line-height: 20/@r;
+      width: 33%;
+      box-sizing: border-box;
+      float: left;
+      display: inline-block;
+      color: #666;
+
+      .icons.icons-app {
+          width: 20/@r;
+          height: 20/@r;
+          background-position: -210/@r -59/@r;
+          margin-right: 5/@r;
+      }
+      .icons.icons-top {
+          width: 20/@r;
+          height: 20/@r;
+          background-position: -210/@r -109/@r;
+          margin-right: 5/@r;
+      }
+      .icons.icons-computer {
+          width: 20/@r;
+          height: 20/@r;
+          background-position: -210/@r -10/@r;
+          margin-right: 5/@r;
+      }
+    }
+    .bottom-btn + .bottom-btn{
+      border-left:  1px solid #ddd;
+    }
+  }
+}

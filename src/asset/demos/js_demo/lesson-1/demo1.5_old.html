@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移入移出改变样式</title>
+	<style>
+		body{text-align: center;}
+		div{background-color: black;width: 200px;height: 200px;color: #fff;border:10px solid black;display: inline-block;}
+		div:hover{border:10px solid red;color: red;background-color: #ccc;cursor: crosshair;}
+	</style>
+</head>
+<body>
+	<div>鼠标移入改变样式</div>
+	<script>
+		var oDiv=document.getElementsByTagName('div')[0];
+		// oDiv.onmouseover=function  () {
+		// 	oDiv.className="hover";
+		// }
+		// oDiv.onmouseout=function  () {
+		// 	oDiv.className="";
+		// }
+	</script>
+</body>
+</html>

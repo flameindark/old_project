@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.4</title>
+	<style>
+		body{text-align: center;font-size: 12px;font-weight: bold;}
+		input{width: 60px;height:20px;border:1px solid #ccc;background: #f0f0f0;}
+		#button{width: 100px;height:20px;}
+		span{color: red;}
+	</style>
+</head>
+<body>
+	<input type="text"> vs
+	<input type="text">
+	<input type="button" value="最大的数是 >>" id="button">
+	<span>？</span>
+	<script>
+		var aInput=document.getElementsByTagName('input');
+		var oSpan=document.getElementsByTagName('span')[0];
+
+		window.onload=function  () {
+			for (var i = 0; i < aInput.length-1; i++) {
+				aInput[i].onkeyup=function  () {
+					this.value=this.value.replace(/\D/,"");
+				}
+			};
+			aInput[2].onclick=function  () {
+				// function sortNumber (a,b) {
+				// 	return a-b;
+				// }
+				aInput[0].value==""||aInput[1].value==""?alert("请输入两个数"):oSpan.innerHTML=/*[aInput[0].value,aInput[1].value].sort(sortNumber)[1];这个太麻烦。直接有方法Math.max*/
+				Math.max(aInput[0].value,aInput[1].value)
+			}
+		}
+	</script>
+</body>
+</html>

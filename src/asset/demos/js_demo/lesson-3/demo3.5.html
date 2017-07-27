@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组练习</title>
+	<style>
+		pre{color: green;border:1px dashed green;padding:8px;background: #eee;}
+		input{margin-right: 10px;}
+	</style>
+</head>
+<body>
+	<pre></pre>
+	<input type="button" value="删除January(1)"><input type="button" value="删除December(12)">
+	<pre></pre>
+	<input type="button" value="复制"><input type="button" value="还原">
+	<pre></pre>
+	<input type="button" value="还原"><input type="button" value="删除前三项"><input
+	 type="button" value="删除二至三项"><input type="button" value="在第二项后加(orange,purple)"><input 
+	 type="button" value="替换第二项和第三项">
+	<script>
+	//我这个脚本没有将一些函数单独独立出来，可能有点冗杂，但基本的功能和思路没什么问题（可以将aPre的内容转换成数组的函数单独写出来）
+		var aPre=document.getElementsByTagName('pre'); 
+		var oArray1=["January(1)","February(2)","March(3)","April(4)","May(5)","June(6)","July(7)","Aguest(8)","September(9)","October(10)","November(11)","December(12)"];
+		var oArray2=[0,1,2,3,4,5,6,7,8,9];
+		var oArray3=["red","green","blue","white","yellow","black","brown"];
+		var aBtn=document.getElementsByTagName('input');
+
+//定义result函数，将初始的数组内容显示到aPre上，这里可以用循环来做(将array定义到一个对象数组中来调用)，我选择的直接赋值
+		function result () {
+					aPre[0].innerHTML=oArray1;
+					aPre[1].innerHTML=oArray2;
+					aPre[2].innerHTML=oArray3;
+		}
+
+// 下面的代码是给每一个按钮添加事件，对数组操作并将结果显示到aPre上。
+		aBtn[0].onclick=function  () {
+			if (this.value=="删除January(1)") {
+				oArray1.shift();
+				this.value="添加January(1)";
+				aPre[0].innerHTML=oArray1;
+			}else{
+				oArray1.unshift("January(1)");
+				this.value="删除January(1)";
+				aPre[0].innerHTML=oArray1;
+			}
+		}
+		
+		aBtn[1].onclick=function  () {
+			if (this.value=="删除December(12)") {
+				oArray1.pop();
+				this.value="添加December(12)";
+				aPre[0].innerHTML=oArray1;
+			}else{
+				oArray1.push("December(12)");
+				this.value="删除December(12)"
+				aPre[0].innerHTML=oArray1;
+			}
+		}
+		// 给按钮3，4，增加事件点击复制，我用的是将数组转为字符串然后用“+”连接
+		aBtn[2].onclick=function  () {
+			aPre[1].innerHTML+=","+oArray2.join(",")
+		}
+		aBtn[3].onclick=function  () {
+			aPre[1].innerHTML=oArray2;
+		}
+		// 先添加还原的事件
+		aBtn[4].onclick=function  () {
+			aPre[2].innerHTML=oArray3;
+		}
+		aBtn[5].onclick=function  () {
+			aPre[2].innerHTML=aPre[2].innerHTML.split(",").slice(3);
+		}
+		aBtn[6].onclick=function  () {
+			var temp=aPre[2].innerHTML.split(",");
+			temp.splice(1,2);
+			aPre[2].innerHTML=temp;
+		}
+		aBtn[7].onclick=function  () {
+			var temp=aPre[2].innerHTML.split(",");
+			temp.splice(1,0,"orange","purple");
+			aPre[2].innerHTML=temp;
+		}
+		//这个是要实现替换的效果的按钮.......
+		aBtn[8].onclick=function  () {
+			var temp=aPre[2].innerHTML.split(",");
+			temp.splice(1,2,"#333333","#777777");
+			aPre[2].innerHTML=temp;
+		}
+		// 下面调用result函数使每一个aPre初始的显示数组的初始值
+		result();
+	</script>
+</body>
+</html>
+
+

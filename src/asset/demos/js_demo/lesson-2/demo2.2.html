@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>提示框效果</title>
+	<style>
+		#outer{width: 450px;padding:0 0 10px 10px;margin: 10px auto;text-align: center;border:1px solid #666;}
+		/*下面的语句用来清除浮动，是利用一个在父级元素最后加一个高度为0的元素来撑开父级元素ul*/
+		#outer ul:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+		#wrap{margin: 0;padding: 0;zoom:1;}
+		#outer ul li{position:relative;float:left;border:1px solid #333;margin:10px 10px 0 0;display:inline;}
+		#outer ul li img{position:absolute;top:-14px;left:-14px;display:none;border:2px solid #999;cursor:crosshair;z-index: 5;}
+		#outer ul li a{color:#666;width:80px;height:80px;display:block;background:#f0f0f0;text-decoration:none;padding:10px;}
+		#outer ul li a strong{display:block;}
+		.zindex{z-index:1;}
+
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<h2>名车车标展示-鼠标移过显示车标</h2>
+		<ul id="wrap">
+			<li class="zindex"><a href="#">BWM</a><img src="1.jpg" alt="1"></li>
+			<li><a href="#">Alfa</a><img src="2.jpg" alt="2"></li>
+			<li><a href="#">Skoda</a><img src="3.jpg" alt="3"></li>
+			<li><a href="#">Volkswagen</a><img src="4.jpg" alt="4"></li>
+			<li><a href="#">Saab</a><img src="5.jpg" alt="5"></li>
+			<!-- <li>none</li>
+			<li>none</li>
+			<li>none</li> -->
+		</ul>
+	</div>
+	<script>
+	// 自己写的脚本，利用了子节点的调用，省去了为每个节点加索引值的繁琐的步骤以及省去获取子节点的步骤
+	window.onload=function  () {
+		var oLi=document.getElementsByTagName('li');
+
+		for (var i = 0; i < oLi.length; i++) {
+			oLi[i].onmouseover=function  () {
+				this.childNodes[1].style.display="block";//亮点
+			}
+			oLi[i].onmouseout=function  () {
+				this.childNodes[1].style.display="none";
+			}
+		};
+	}
+	// 参考的脚本，虽然也比较简单但是有点啰嗦没有太大的亮点。
+// 		window.onload = function ()
+// {
+// 	var oLi = document.getElementsByTagName("li");
+// 	var oA = document.getElementsByTagName("a");
+// 	var oImg = document.getElementsByTagName("img");
+// 	for (var i = 0; i < oLi.length; i++)
+// 	{
+// 		oA[i].index = oImg[i].index = i;
+// 		oA[i].onmouseover = function() {
+// 			oLi[this.index].className = "zindex";
+// 			oImg[this.index].style.display = "block"
+// 		};
+// 		oA[i].onmouseout = function ()
+// 		{
+// 			oLi[this.index].className = "";
+// 			oImg[this.index].style.display = "none"
+// 		};
+// 		oImg[i].onmouseover = function()
+// 		{
+// 			oLi[this.index].className = "zindex";
+// 			this.style.display = "block"	
+// 		};
+// 		oImg[i].onmouseout = function()
+// 		{
+// 			oLi[this.index].className = "";
+// 			this.style.display = "none"	
+// 		}		
+// 	}	
+// }
+
+	</script>
+</body>
+</html>

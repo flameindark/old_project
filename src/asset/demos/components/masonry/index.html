@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>masonry</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#main{
+			position: relative;
+		}
+		.box{
+			padding: 15px 0 0 15px;
+			float: left;
+		}
+		.pic{
+			padding: 10px;
+			border: 1px solid #ccc;
+			box-shadow: 0 0 5px #ccc;
+		}
+		.pic img{
+			width: 165px;
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div class="box">
+			<div class="pic"><img src="./img/P_001.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_002.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_003.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_004.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_005.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_006.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_007.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_008.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_009.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_010.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_011.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_012.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_013.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_014.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_015.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_016.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_017.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_018.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_019.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_020.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_021.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_022.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_023.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_024.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_025.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_026.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_027.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_028.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_029.jpg" alt=""></div>
+		</div>
+		<div class="box">
+			<div class="pic"><img src="./img/P_030.jpg" alt=""></div>
+		</div>
+	</div>
+	<script>
+	//这个是用原生的js写的瀑布流方法
+	// 	window.onload=function  () {
+	// 		var dataInt={'data':[{"src":"P_001.jpg"},{"src":"P_002.jpg"},{"src":"P_003.jpg"},{"src":"P_004.jpg"},{"src":"P_005.jpg"},{"src":"P_006.jpg"},{"src":"P_007.jpg"},{"src":"P_008.jpg"}]}
+	// 		waterfall('main','box');
+	// 		window.onscroll=function  () {
+	// 			if (checkSlider()) {
+	// 				var oParent=document.getElementById('main');
+	// 				//将数据块渲染到页面中
+	// 				for(var i=0;i<dataInt.data.length;i++){
+	// 					var oBox=document.createElement('div');
+	// 					oBox.className='box';
+	// 					oParent.appendChild(oBox);
+
+	// 					var oPic=document.createElement('div');
+	// 					oPic.className='pic';
+	// 					oBox.appendChild(oPic);
+
+	// 					var oImg=document.createElement('img');
+	// 					oImg.src='img/'+dataInt.data[i].src;
+	// 					oPic.appendChild(oImg);
+	// 				}
+	// 				waterfall('main','box');
+	// 			};
+	// 		}
+
+	// 	}
+
+	// 	function waterfall (parent,box) {
+	// 		//将main下的所有class为box的元素取出
+	// 		var oParent=document.getElementById(parent);
+	// 		var aBox=getByClass(oParent,box);
+
+	// 		var oBoxw=aBox[0].offsetWidth;
+	// 		var col=Math.floor(document.documentElement.clientWidth/oBoxw);
+
+	// 		var hArray=[];
+
+	// 		// 设置main的宽度
+	// 		oParent.style.cssText="width:"+oBoxw*col+'px;margin:0 auto';			
+	// 		//遍历图片高度
+	// 		for (var i=0; i<aBox.length;i++) {
+	// 			if (i<col) {
+	// 				hArray.push(aBox[i].offsetHeight);
+	// 			}else{
+	// 				var mHi=Math.min.apply(null,hArray);
+	// 				var index=getMinIndex(hArray,mHi);
+	// 				aBox[i].style.position="absolute";
+	// 				aBox[i].style.left=oBoxw*index+'px';
+	// 				aBox[i].style.top=mHi+'px';
+	// 				hArray[index]+=aBox[i].offsetHeight;
+	// 			}	
+	// 		};
+	// 	}
+
+	// 	function getByClass (parent,box ) {
+	// 		var aBox=[];
+
+	// 		var elments=parent.getElementsByTagName('*');
+
+	// 		for (var i=0; i<elments.length; i++) {
+	// 			if (elments[i].className==box) {
+	// 				aBox.push(elments[i]);
+	// 			};
+	// 		};
+
+	// 		return aBox;
+	// 	}
+
+	// 	function getMinIndex (arr,val) {
+	// 		for(var i in arr){
+	// 			if (arr[i]==val) {
+	// 				return i;
+	// 			};
+	// 		}
+	// 	}
+
+	// 	//检查是否具备加载数据的能力
+	// 	function checkSlider () {
+	// 		var oParent=document.getElementById('main');
+	// 		var aBox=getByClass(oParent,'box');
+	// 		var lastBoxH=aBox[aBox.length-1].offsetTop+Math.floor(aBox[aBox.length-1].offsetHeight/2);
+	// 		var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+	// 		var height=document.body.clientHeight||document.documentElement.clientHeight;
+
+	// 		return (lastBoxH<scrollTop+height)?true:false;
+	// 	}
+	// </script>
+	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script type="text/javascript">
+	//这是用jquery写的瀑布流的方法
+		$(window).on('load',function  () {
+			waterfall();
+			var dataInt={'data':[{"src":"P_001.jpg"},{"src":"P_002.jpg"},{"src":"P_003.jpg"},{"src":"P_004.jpg"},{"src":"P_005.jpg"},{"src":"P_006.jpg"},{"src":"P_007.jpg"},{"src":"P_008.jpg"}]};
+			$(window).on('scroll',function  () {
+				if (checkSlider()) {
+					$.each(dataInt.data,function (key,value) {
+						var oBox=$('<div>').addClass('box').appendTo($('#main'));
+						var oPic=$('<div>').addClass('pic').appendTo($(oBox));
+						$('<img>').attr('src','img/'+$(value).attr('src')).appendTo($(oPic));
+					})
+					waterfall();
+				};
+				checkSlider();
+			})
+		})
+
+		function waterfall () {
+			var $boxs=$('#main>div');
+			var oBoxw=$boxs.eq(0).outerWidth();
+			var cols=Math.floor($(window).width()/oBoxw);
+			var aHi=[];
+			$('#main').width(cols*oBoxw).css('margin','0 auto');
+
+			$boxs.each(function  (index,value) {
+				if (index<cols) {
+					aHi.push($boxs.eq(index).outerHeight());
+				}else{
+					var minH=Math.min.apply(null,aHi);
+					var minIndex=$.inArray(minH,aHi);
+
+					$(value).css({
+						'position':'absolute',
+						'top':minH+'px',
+						'left':minIndex*oBoxw+'px',
+					})
+					aHi[minIndex]+=$boxs.eq(index).outerHeight();
+				}
+			})
+		}
+
+		// 判断是否满足加载条件。
+		function checkSlider () {
+			var $lastBox=$('#main>div').last();
+			var lastBoxDis=$lastBox.offset().top+Math.floor($lastBox.outerHeight()/2);
+			var scrollTop=$(window).scrollTop();
+			var clientHeight=$(window).height();
+
+			return (lastBoxDis<scrollTop+clientHeight)?true:false
+		}
+	</script>
+</body>
+</html>

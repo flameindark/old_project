@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.7</title>
+	<style>
+		body{font-weight: bold;font-family: arial;}
+		#wrap{width: 300px;background: #ccc;margin: 0 auto;}
+		#top{height: 15px;background: #000;color: #fff;font-weight: normal;text-align: right;}
+		#input{height: 80px;background: #f0f0aa;text-align: right;overflow: hidden;}
+		#his{font-size: 12px;font-weight: none;line-height: 25px;height: 25px;overflow: hidden;}
+		#acInput{font-size: 40px;line-height: 55px;}
+		ul{list-style: none;padding: 0 0 10px 10px;background: url(bg.jpg);margin: 0;}
+		ul:after{content: ".";display: block;height: 0;zoom:1;clear:both;visibility: hidden;}
+		li{width: 63px;height:41px;float: right;margin: 15px 8px 0 0 ;border-radius: 4px; display: inline-block;text-align: center;background: url(btn.png) 0 0 no-repeat;}
+		a{text-decoration: none;color: #fff;display: block;font-size: 20px;line-height: 40px;}
+		a:hover{background: url(btn.png) -63px 0;}
+		li.btn-1{background: url(btn.png) 0 -41px no-repeat;}
+		li.btn-1 a:hover{background: url(btn.png) -63px -41px no-repeat;}
+		li.btn-2{background: url(btn.png) no-repeat 0 -164px;height: 95px;line-height: 95px;}
+		li.btn-2 a:hover{background: url(btn.png) no-repeat -63px -164px;}
+		li.btn-2 a{line-height: 95px;}
+		li.btn-3{background: url(btn.png) no-repeat 0 -82px;width: 135px;}
+		li.btn-3 a:hover{background: url(btn.png) no-repeat 0 -123px;}
+	</style>
+</head> 
+<body>
+	<div id="wrap">
+		<div id="top">
+			by 563
+		</div>
+		<div id="input">
+			<div id="his"></div>
+			<div id="acInput">0</div>
+		</div>
+		<ul>
+			<!-- a标签上加的地址为javascript的空返回，不会使点击时页面跳动 -->
+			<li class="btn-1" title="*"><a href="javascript:void(0)">x</a></li>
+			<li class="btn-1" title="/"><a href="javascript:void(0)">÷</a></li>
+			<li class="btn-1"><a href="javascript:void(0)">%</a></li>
+			<li class="btn-1"><a href="javascript:void(0)">c</a></li>	
+			<li class="btn-1"><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">9</a></li>
+			<li><a href="javascript:void(0)">8</a></li>
+			<li><a href="javascript:void(0)">7</a></li>
+			<li class="btn-1"><a href="javascript:void(0)">+</a></li>
+			<li><a href="javascript:void(0)">6</a></li>
+			<li><a href="javascript:void(0)">5</a></li>
+			<li><a href="javascript:void(0)">4</a></li>
+			<li class="btn-2"><a href="javascript:void(0)">=</a></li>
+			<li><a href="javascript:void(0)">.</a></li>
+			<li><a href="javascript:void(0)">3</a></li>
+			<li><a href="javascript:void(0)">2</a></li>
+			<li><a href="javascript:void(0)">1</a></li>
+			<li class="btn-3"><a href="javascript:void(0)">0</a></li>		
+		</ul>
+	</div>
+	<script>
+			var oBtn1=document.getElementsByClassName('btn-1'),
+				oBtn2=document.getElementsByClassName('btn-2')[0],
+				oBtn3=document.getElementsByClassName('btn-3'),
+				oHis=document.getElementById('his'),
+				oAcInput=document.getElementById('acInput'),
+				oBtn=document.getElementsByTagName('li');
+
+				for (var i = 0; i < oBtn.length; i++) {
+					oBtn[i].onclick=function  () {
+						if (!parseInt(oAcInput.innerHTML)){
+							if (this.title) {
+							oHis.innerHTML=oHis.innerHTML.replace(/\D$/,this.title);
+							oAcInput.innerHTML=this.title;
+							}
+							else oAcInput.innerHTML=this.childNodes[0].innerHTML;	
+						}
+						else 	oAcInput.innerHTML+=this.childNodes[0].innerHTML;
+
+					}
+				};
+				for (var i = 0; i < oBtn1.length; i++) {
+						oBtn1[i].index=i;
+						oBtn1[i].onclick=function  () {
+							if (this.index==3) {
+								oAcInput.innerHTML="0";
+								oHis.innerHTML="";
+							}
+							else if(oAcInput.innerHTML==this.childNodes[0].innerHTML) 
+								return false;
+							else if(!parseInt(oAcInput.innerHTML)&&oAcInput.innerHTML!="0") {
+								var temp=oBtn1[this.index].childNodes[0].innerHTML;
+								oHis.innerHTML=oHis.innerHTML.replace(/\D$/,temp);
+								oAcInput.innerHTML=temp;
+							}
+							else{
+								oHis.innerHTML=oHis.innerHTML+oAcInput.innerHTML+this.childNodes[0].innerHTML;
+								oAcInput.innerHTML=this.childNodes[0].innerHTML;
+							}
+							
+						}
+				};
+				oBtn2.onclick=function  () {
+					oHis.innerHTML+=oAcInput.innerHTML;
+					var t=oAcInput.innerHTML=eval(oHis.innerHTML);				
+				}
+
+	</script>
+</body>
+</html>

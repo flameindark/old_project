@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+/*主页banner区*/
+.banner { position: relative;top: -6px;width: 100%;height: 592px;overflow: hidden; }
+.banner .bd { position:relative; left:50%; width:1920px; height:592px; margin-left:-960px; background:#fff;font-size: 0; }
+.banner .bd img { position: absolute;height: 592px;vertical-align: bottom;font-size: 0; }
+
+/*sbar区*/
+.sbar { height: 36px;overflow: hidden;padding-top:6px;background: url(nav-bottom.png) repeat-x;font-size: 12px;color: #73767b;margin-top: -6px; }
+.sbar .g-in,.sbar dt { height: 36px; }
+.sbar dl { height: 36px; }
+.sbar dt,.sbar dd,.sbar dt a { float: left; }
+.sbar dt { margin-right: 18px; }
+.sbar dt a { font-size: 12px;color:#1254a9;line-height: 36px;height: 36px;margin-right: 17px;font-weight: bold;  }
+.sbar dd { position: relative;margin:6px 28px 0 0;line-height: 30px;padding-left: 11px;background: url(sbar_ico_02.png) no-repeat; }
+.sbar dd .hot { position: absolute;top: -4px;right: 2px;width: 24px;height: 11px;background: url(sbar_ico_03.png) no-repeat; }
+.more { float: right;width: 60px;height: 20px;background: url(more.png) no-repeat;text-indent: 9999px;margin-top: 6px; }
+
+.benefit { padding: 17px 0 25px 0;background: #eff4f7; }
+.benefit .hd { float: left;width: 276px;height: 430px;background: #fff;border-left: 1px solid #ebf0f3;margin-right: 5px;  }
+.benefit .hd li { height: 96px;padding-bottom: 6px;background: url(benefit_ico_05.png) no-repeat bottom;cursor: pointer;font-size: 0;overflow: hidden; }
+.benefit .hd li .b-text { display: inline-block;*display: inline;zoom: 1;height: 96px;line-height: 96px;font-size: 18px;vertical-align: bottom;margin-left: 20px; }
+.benefit .hd .b-nav-left { float: left; }
+.benefit .hd .arrow ,.benefit .hd .current-arrow { float: right; }
+.benefit .hd .arrow { margin-right: 42px; }
+.benefit .hd .on .arrow,.benefit .hd .current-arrow { display: none; }
+.benefit .hd .on { width: 285px;background-position: 0px bottom; }
+.benefit .hd .on .current-arrow { display: block; }
+.benefit .bd { width: 1282px; }
+.benefit .bd ul { float: right;width: 982px;height: 430px; }
+.benefit .bd ul li { float: left;font-size: 0;border: 1px solid #ebeaea;margin: 0 10px 10px 0; }
+.benefit .bd .item1 li { width: 322px;height: 188px; }
+.benefit .bd .item1 li.item1-1 { width: 298px;height: 430px; }
+.benefit .bd .item2 li { position: relative;width: 306px;height: 202px; }
+.benefit .bd .item3 li { width: 299px;height: 199px; }
+.benefit .bd .item2 .filter{ position: absolute;bottom: 0;left: 0; }
+.benefit .bd .item2 .pj-hd { width: 305px;height: 36px;text-align: center;position: absolute;bottom: 0;left: 0;z-index: 99;color: #fff;font-size: 14px;line-height: 36px; }
+.benefit .bd .item4 li { width: 308px;height: 430px; }
+
+/*标签页内嵌的banner*/
+.benefit .inner-banner { background: #fff;height: 230px; }
+.benefit .product-banner { position:relative; width:318px; height:184px; text-align:center; z-index:1; overflow:hidden; }
+.benefit .product-banner .bd { position:relative; left:50%; width:318px; height:184px; margin-left:-159px;vertical-align: bottom; }
+.benefit .product-banner .bd ul { width: 318px; }
+.benefit .product-banner .hd { position:absolute; bottom:10%; width:100%; height:4px; z-index:1;background: none; }
+.benefit .product-banner .hd ul { width:318px; margin:0 auto; text-align:center;height: 4px; }
+.benefit .product-banner .hd ul li { display:inline-block; *display:inline; zoom:1; width:40px; height:4px; margin:0 3px; background:#b2b0ad; line-height:999px; overflow:hidden; cursor:pointer; vertical-align:top;border: none;padding: 0;float: none; }
+.benefit .product-banner .hd ul .on { background:#90c31f; }
+.benefit .inner-banner .b-desc { height: 45px;font-size:16px;line-height: 45px;text-align: center;  } 
+
+/*旗下公司栏目*/
+.sub-company { margin: 32px 0 0 34px;font-size: 14px; }
+.sub-company h3 { border-left: 5px solid #0b4da3;font-size: 20px;font-weight: normal;padding-left: 14px; }
+.sub-company .c-container { border: 1px solid #e0e0e0;margin: 30px 0 34px 0; }
+.sub-company .hd { float: left;width: 322px;height: 276px;background: #f0f4f7;border: 1px solid #e0e0e0; }
+.sub-company .hd li { height: 44px;line-height: 40px;border-bottom: 1px solid #e6e8e9;margin:0 8px;text-align: center;cursor: pointer;overflow: hidden; }
+.sub-company .hd li.on { margin: 0;background: #7fba45;border-bottom: 1px solid #b8da9c;color: #fff;font-weight: bold; }
+.sub-company .bd { width: 920px;float: right;height: 274px;overflow: hidden; }
+.sub-company .inHd { width: 220px;height: 44px; }
+.sub-company .inHd li { width: 102px;height: 44px;text-align: center;line-height: 44px;margin: 0;border-bottom:1px solid #e0e0e0;display: inline-block;*display: inline;zoom: 1;cursor: pointer;  }
+.sub-company .inHd li.on { border-bottom: 1px solid #0b4da3;background: #fff;color: #575757; }
+.sub-company .inBd li { width: 444px;float: left;color: #575757;margin-top: 12px;line-height: 28px; }
+.sub-company .inBd li .more-info { display: inline-block;*display: inline;zoom: 1;width: 112px;height: 24px;background: #0b4da3;text-align: center;color: #fff;margin-left: 14px; }
+.sub-company .inBd li.c-pic { float: right;width: 462px;margin: -16px 0px 0 0; }
+.sub-company .inBd li.c-pic img { margin-right: 1px; }
+

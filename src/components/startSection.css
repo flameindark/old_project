@@ -1,0 +1,38 @@
+
+html,
+body {
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* cover */
+
+#cover {
+    background: #222 url('img/stars.jpg') center center no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+#cover-caption {
+    width: 100%;
+}
+
+.section-content {
+    padding: 5rem 0;
+}
+
+.title {
+    font-size: 4.5rem;
+    font-weight: 300;
+}
+
+.intro {
+    padding-bottom: 100px;
+}

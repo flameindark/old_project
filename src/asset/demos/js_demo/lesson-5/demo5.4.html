@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止鼠标右键事件</title>
+</head>
+<body>
+	<p>点击鼠标右键，然而并没有什么用</p>
+	<script>
+		document.oncontextmenu=function  () {
+			return false;
+		}
+	</script>
+</body>
+</html>

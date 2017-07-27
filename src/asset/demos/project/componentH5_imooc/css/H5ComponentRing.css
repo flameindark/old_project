@@ -1,0 +1,34 @@
+.h5_component_ring{
+}
+
+.h5_component_ring canvas{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.h5_component_ring .text{
+	position: absolute;
+	top:40%;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	text-align: center;
+	z-index: 100;
+}
+
+.h5_component_ring .mask{
+	background-color:#fff;
+	z-index: 99;
+	position: absolute;
+	transform: scale(.8);
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.h5_component_ring .per{
+	-webkit-transform:scale(.5);
+}

@@ -1,0 +1,46 @@
+@charset "utf-8";
+/*banner和sub-banner区*/
+/*主banner*/
+.banner { position: relative;width: 100%;height: 500px;overflow: hidden;z-index: 1; }
+.banner .bd { position: relative;left: 50%;width: 1950px;height: 500px;margin-left: -950px; }
+.banner .hd { position: absolute;width: 100%;bottom: 17px;text-align: center;z-index: 9999;font-size: 0; }
+.banner .hd ul { width: 1000px;margin: 0 auto; }
+.banner .hd li { display: inline-block;*display: inline;zoom:1;width: 10px;height: 10px;background: url(banner_ico01.png) no-repeat;margin-right: 7px;cursor: pointer; }
+.banner .hd li.on { background: url(banner_ico02.png) no-repeat; }
+.banner .g-in { position: relative; }
+/*sub-nav区*/
+.banner .sub-nav { position: absolute;right: 0;top: 0;background: url(subNav_bg.png);padding: 18px 23px 25px 27px;z-index: 9999; }
+.sub-nav ul { float: left;margin-right: 20px; }
+.sub-nav li { width: 141px;height: 20px;border: 1px solid #e3e3e3;color: #555;margin-bottom: 4px;text-align: center;line-height: 20px; }
+.sub-nav .sNav-right { float: right;width: 549px;height: 154px; }
+.sub-nav .sNav-right dl { float: left;width: 302px;line-height: 26px; }
+.sub-nav .sNav-right dt { color: #000;margin-bottom: 6px;line-height: 20px; }
+.sub-nav .sNav-right img { float: right;width: 214px;height: 154px; }
+
+
+.container { margin-top: 55px; }
+/*公共样式*/
+.u-tt { float: left; }
+.u-tt .hd { padding-bottom: 44px; }
+.u-tt .hd h2 { font-size:16px;padding-left: 14px;color: #d82128;line-height: 20px;border-left: 4px solid #d82128; }
+.u-tt .hd h2 span { margin-left: 13px;font-weight: normal;color: #464646;font-size: 10px;color: #c1c1c1; }
+/*business区*/
+.business { width: 387px;margin-right: 42px; }
+.business ul li { float: left;text-align: center; }
+.business ul li img { width: 123px;height: 90px;margin:0 6px 4px 0; }
+.business ul li h4 { line-height: 38px;font-weight: normal; }
+/*news区*/
+.news { width: 352px;margin-right: 24px; }
+.news dl { height: 112px;border-bottom: 1px dashed #d7d7d7;margin-bottom: 15px; }
+.news dt { font-size: 16px;color: #000;margin-bottom: 15px; }
+.news dd { line-height: 19px; }
+.news dd span { display: block; }
+.news dd a { color: #d82128; }
+.news ul li { line-height: 30px; }
+.news ul li span { float: right; }
+/*资质区*/
+.honer { width: 195px;text-align: center; }
+.honer .bd { padding: 7px 0 0 8px; }
+.honer .bd img { width: 139px;height: 197px; }
+.honer .bd h4 { line-height: 42px;font-weight: normal; }
+

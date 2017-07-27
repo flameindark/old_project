@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4.4</title>
+	<style>
+		pre{border:1px dashed #33e;background: #ddd;}
+	</style>
+</head>
+<body>
+	<!-- pre标签能够保持其中代码的本来的空格和格式，所以常用来显示代码 -->
+	<pre>
+		&lt;script type="text/javascript"><!-- 要输出脚本代码到界面必须要将代码的标签对的符号替换，如将<替换成&lt; -->
+		function sum () {
+			var t=0
+			for (var i = 0; i < arguments.length; i++) {
+				t+=arguments[i];
+			}
+			return t;
+		}
+		alert(sum(1,2,3,4,5,6,7,8,9,10));
+		&lt;/script>
+	</pre>
+
+	<script type="text/javascript">
+		function sum () {
+			var t=0
+			for (var i = 0; i < arguments.length; i++) {
+				t+=arguments[i];
+			}
+			return t;
+		}
+		alert(sum(1,2,3,4,5,6,7,8,9,10));
+	</script>
+</body>
+</html>

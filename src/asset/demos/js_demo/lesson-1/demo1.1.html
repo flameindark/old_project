@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页换肤</title>
+	<style>
+		*{margin: 0;padding: 0;list-style: none;}
+	 	body{width:100%;height:100%;text-align: center;}
+	 	#wrap{width: 500px;margin: 0 auto;overflow: hidden;zoom:1;}
+	 	#skin, #nav{overflow: hidden;zoom: 1;}
+	 	#skin{margin: 10px 0}
+		#skin li{width: 6px;height: 6px;margin-right: 10px;float: left;cursor: pointer;border-width: 4px;border-style: solid;overflow: hidden;}
+		#skin li.current{background-color: #fff!important}
+		#red{background: red;border-color:red ;}
+	 	#green{background: green;border-color: green;}
+	 	#black{background: black;border-color: black;}
+	 	#nav{border:1px solid #fff;}
+		#nav li{float:left;width:82px;line-height:25px;text-align:center;border-right:1px solid #fff;}
+		#nav li.last{width:83px;border-right-width:0;}
+		#nav li {color:#fff;}
+	 	
+
+	</style>
+	<link rel="stylesheet" href="red.css">
+</head>
+<body>
+	<div id="wrap">
+			<ul id="skin">
+				<li id="red" class="current"></li>
+				<li id="green"></li>
+				<li id="black"></li>
+			</ul>
+			<ul id="nav">
+				<li>新闻</li>
+				<li>体育</li>
+				<li>娱乐</li>
+				<li>电影</li>
+				<li>音乐</li>
+				<li>购物</li>
+			</ul>
+	</div>
+	<script>
+		var oSkin=document.getElementById('skin').getElementsByTagName('li');
+		var oLink=document.getElementsByTagName('link')[0];
+		window.onload=function  () {
+			for (var i = 0; i < oSkin.length; i++) {
+				oSkin[i].onclick=function  () {
+					for(p in oSkin) oSkin[p].className="";
+					this.className="current";
+					oLink["href"]=this.id+".css";
+				}
+			};
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>仿bilibili移动端web</title>
+  <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/vendor/normalize.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <nav class="nav-bar">
+    <nav class="nav-wrap">
+      <a href="javascript:void(0);" class="logo"><i></i></a>
+      <a href="javascript:void(0);" class="cell"><i class="history-icon"></i></a>
+      <a href="javascript:void(0);" class="cell"><i class="search-icon"></i></a>
+    </nav>
+  </nav>
+  <div class="container-wrap">
+    <div class="menu-nav">
+      <ul class="menu-bar">
+        <li class="on"><a href="javascript:void(0);">首页</a></li>
+        <li><a href="javascript:void(0);">频道</a></li>
+        <li><a href="javascript:void(0);">直播</a></li>
+        <li><a href="javascript:void(0);">排行</a></li>
+        <li><a href="javascript:void(0);">我的</a></li>
+      </ul>
+    </div>
+    <div class="slider-wrapper">
+      <div id='slider' class='swiper-container'>
+        <div class='swiper-wrapper'>
+          <a href="javascript:void(0);" class="swiper-slide"><img src="./img/banner1.jpg" alt="banner"></a>
+          <a href="javascript:void(0);" class="swiper-slide"><img src="./img/banner2.jpg" alt="banner"></a>
+          <a href="javascript:void(0);" class="swiper-slide"><img src="./img/banner3.jpg" alt="banner"></a>
+          <a href="javascript:void(0);" class="swiper-slide"><img src="./img/banner4.jpg" alt="banner"></a>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div class="container-item recommend-container">
+      <a href="javascript:void(0);" class="item-header">
+        <div class="left">
+          <h3><i class="bilibili-index-sprite bilibili-index-hot"></i>热门推荐</h3>
+        </div>
+        <div class="right hot">
+          <h3><i class="bilibili-index-sprite bilibili-index-ranking"></i>排行榜</h3>
+        </div>
+      </a>
+      <ul class="item-content">
+        <li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/1d0861e1d364825e8f048c181552add972ec1cc4.jpg_320x200.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="title">【凹凸世界手书/腐向】海盗法则【安雷】</div>
+            <div class="meta clearfix">
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-play"></i><span>1.8万</span></div>
+              <div class="left cell "><i class="bilibili-index-sprite bilibili-index-danmu"></i><span>931</span></div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/1d0861e1d364825e8f048c181552add972ec1cc4.jpg_320x200.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="title">【凹凸世界手书/腐向】海盗法则【安雷】</div>
+            <div class="meta clearfix">
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-play"></i><span>1.8万</span></div>
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-danmu"></i><span>931</span></div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/1d0861e1d364825e8f048c181552add972ec1cc4.jpg_320x200.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="title">【凹凸世界手书/腐向】海盗法则【安雷】</div>
+            <div class="meta clearfix">
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-play"></i><span>1.8万</span></div>
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-danmu"></i><span>931</span></div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/1d0861e1d364825e8f048c181552add972ec1cc4.jpg_320x200.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="title">【凹凸世界手书/腐向】海盗法则【安雷】</div>
+            <div class="meta clearfix">
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-play"></i><span>1.8万</span></div>
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-danmu"></i><span>931</span></div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="container-item live-container">
+      <a href="javascript:void(0);" class="item-header">
+        <div class="left">
+          <h3><i class="bilibili-index-sprite bilibili-index-live"></i>正在直播</h3>
+        </div>
+        <div class="right">
+          <h3><i class="bilibili-index-sprite bilibili-index-arrow"></i>查看更多直播</h3>
+        </div>
+      </a>
+      <ul class="item-content">
+        <li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/live01.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="avatar"><img src="./img/avatar.jpg" alt="avatar"></div>
+            <div class="meta clearfix">
+              <div class="user-info">
+                  <div class="name text-overflow">-CC酱-</div>
+                  <div class="desp text-overflow">东京留学 今天也会是元气满满</div>
+              </div>
+              <div class="online text-overflow">5214</div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/live02.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="avatar"><img src="./img/avatar.jpg" alt="avatar"></div>
+            <div class="meta clearfix">
+              <div class="user-info">
+                  <div class="name text-overflow">-CC酱-</div>
+                  <div class="desp text-overflow">东京留学 今天也会是元气满满</div>
+              </div>
+              <div class="online text-overflow">5214</div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/live03.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="avatar"><img src="./img/avatar.jpg" alt="avatar"></div>
+            <div class="meta clearfix">
+              <div class="user-info">
+                  <div class="name text-overflow">-CC酱-</div>
+                  <div class="desp text-overflow">东京留学 今天也会是元气满满</div>
+              </div>
+              <div class="online text-overflow">5214</div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/live04.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="avatar"><img src="./img/avatar.jpg" alt="avatar"></div>
+            <div class="meta clearfix">
+              <div class="user-info">
+                  <div class="name text-overflow">-CC酱-</div>
+                  <div class="desp text-overflow">东京留学 今天也会是元气满满</div>
+              </div>
+              <div class="online text-overflow">5214</div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="container-item ad-container">
+      <a href="javascript:void(0);" class="item-header">
+        <div class="left">
+          <h3><i class="bilibili-index-sprite bilibili-index-advertise"></i>广告</h3>
+        </div>
+        <div class="right">
+          <h3><i class="bilibili-index-sprite bilibili-index-arrow"></i>查看更多更新</h3>
+        </div>
+      </a>
+      <ul class="item-content">
+        <li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/live01.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="title">【凹凸世界手书/腐向】海盗法则【安雷】</div>
+            <div class="meta clearfix">
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-play"></i><span>1.8万</span></div>
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-danmu"></i><span>931</span></div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/live02.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="title">【凹凸世界手书/腐向】海盗法则【安雷】</div>
+            <div class="meta clearfix">
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-play"></i><span>1.8万</span></div>
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-danmu"></i><span>931</span></div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/live03.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="title">【凹凸世界手书/腐向】海盗法则【安雷】</div>
+            <div class="meta clearfix">
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-play"></i><span>1.8万</span></div>
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-danmu"></i><span>931</span></div>
+            </div>
+          </a>
+        </li><li class="item-list">
+          <a href="javascript:void(0);" class="item">
+            <img src="./img/live04.jpg" alt="item">
+          </a>
+          <a href="javascript:void(0);" class="info">
+            <div class="title">【凹凸世界手书/腐向】海盗法则【安雷】</div>
+            <div class="meta clearfix">
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-play"></i><span>1.8万</span></div>
+              <div class="left cell"><i class="bilibili-index-sprite bilibili-index-danmu"></i><span>931</span></div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <p class="clearfix">
+      <a href="javascript:void(0);" class="bottom-btn"><i class="icons icons-computer"></i><span>电脑版</span></a>
+      <a href="javascript:void(0);" class="bottom-btn"><i class="icons icons-app"></i><span>客户端</span></a>
+      <a href="javascript:void(0);" class="bottom-btn"><i class="icons icons-top"></i><span>返回顶部</span></a>
+    </p>
+    <p>
+      哔哩哔哩 沪ICP备13002172号-3
+    </p>
+    <p>信息网络传播视听节目许可证：0910417</p>
+  </footer>
+  <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
+  <script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3.5</title>
+	<style>
+		body{text-align: center;}
+		input{width:60px;height: 20px;background: #f0f0f0;border:1px solid #ccc; }
+		#btn{width: 100px;}
+	</style>
+</head>
+<body>
+	<input type="text">
+	<input type="button" value="是否为两位数" id="btn">
+	<script>
+		var aInput=document.getElementsByTagName('input');
+
+		window.onload=function  () {
+			aInput[0].onkeyup=function  () {
+				this.value=this.value.replace(/\D/,"");
+			}
+			// 自己定义的记录位数的方法，但是js中的字符串有length方法可以返回字符串的长度位数，
+			// 当字符中为数字时自然就能返回位数
+			// aInput[1].onclick=function  () {   
+			// 	var i=1;
+			// 	if (aInput[0].value=="") alert("请输入数字");
+			// 	console.log(aInput[0].value);
+			// 	var tmp=parseInt(aInput[0].value);
+			// 	while(tmp>=10){
+			// 		tmp=tmp/10;
+			// 		i++;
+			// 	}
+			// 	alert("这是"+i+"位数")
+			// }
+
+			aInput[1].onclick=function  () {
+				aInput[0].value==""?
+				alert("请输入数字"):
+				alert(/^\d{2}$/.test(parseInt(aInput[0].value))?"√ ，是两位数":"这是"+aInput[0].value.length+"位数")
+			}
+		}
+	</script>
+</body>
+</html>

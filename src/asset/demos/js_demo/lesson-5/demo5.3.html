@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示按下的键的keyCode</title>
+	<style>
+		p{font-size: 34px;text-align: center;font-weight: bold;}
+	</style>
+</head>
+<body>
+	<p>这里显示你按下的键的keyCode</p>
+	<script>
+		window.onload=function  () {
+			var oP=document.getElementsByTagName('p')[0];
+
+			document.onkeydown=function  (ev) {
+				var oEvent=window.event||ev;
+				oP.innerHTML=oEvent.keyCode;
+			}
+		}
+	</script>
+</body>
+</html>

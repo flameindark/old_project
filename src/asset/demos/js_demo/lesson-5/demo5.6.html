@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义鼠标右键菜单</title>
+	<style>
+		body{text-align: center;}
+		ul{width: 100px;height: 72px;list-style: none;padding: 2px;border:1px solid #666;border-radius: 4px;display: none;position: absolute;}
+		li{height: 24px;width: 100px;background: #eaeaea;text-align: 
+			left;}
+		li.active{background: #aaa;}
+		li.active a{background: #999;}
+		em{width: 20px;height: 24px;display: inline-block;}
+		em.cut{background: url(ico.png) no-repeat;}
+		em.copy{background: url(ico.png) 0 -24px no-repeat;}
+		em.paste{background: url(ico.png) 0 -48px no-repeat;}
+		a{text-decoration: none;color: #555;font-size: 12px;line-height: 24px;background: #fff;width: 76px;display: inline-block;padding-left: 4px;}
+
+	</style>
+</head>
+<body>
+	<p>自定义鼠标的右键菜单,请点击鼠标右键</p>
+	<div id="menu">
+		<ul>
+			<li><em class="cut"></em><a href="javascript:;">剪切</a></li>
+			<li><em class="copy"></em><a href="javascript:;">复制</a></li>
+			<li><em class="paste"></em><a href="javascript:;">粘贴</a></li>
+		</ul>
+	</div>
+	<script>
+		window.onload=function  () {
+			var oUl=document.getElementsByTagName('ul')[0],
+				aLi=oUl.getElementsByTagName('li');
+
+			for (var i = 0; i < aLi.length; i++) {
+				// 鼠标移入显示背景色变化
+				aLi[i].onmouseover=function  () {
+					this.className="active";
+				}
+				// 鼠标移出恢复
+				aLi[i].onmouseout=function  () {
+					this.className="";
+				}
+			};
+			// 鼠标右键时显示自定义菜单,位置与点击时鼠标位置一样.
+			document.oncontextmenu=function  (ev) {
+				var oEvent=ev||window.event;
+
+				oUl.style.display="block";
+				oUl.style.left=oEvent.clientX+"px";
+				oUl.style.top=oEvent.clientY+"px";
+				// 这里return false 是为了阻止本来的鼠标右键事件
+				return false;
+			}
+			// 在鼠标左键点击时自定义菜单消失
+			document.onclick=function  () {
+				oUl.style.display="none";
+			}
+		}
+	</script>
+</body>
+</html>

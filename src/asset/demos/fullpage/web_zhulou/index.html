@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主楼中心</title>
+	<link rel="shortcut icon" href="gd.ico" type="image/x-icon">
+	<link rel="icon" href="gd.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+	<div id="bigcontainer" class="clearfix">
+		<div id="header">
+			<div class="top">
+				<div class="top_icon"></div>
+				<h1>主楼中心</h1>
+			</div>
+			<div class="nav">	
+				<ul id="nav_ul">
+					<li class="active_nav"><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content" class="clearfix">
+			<div class="left_content clearfix">
+				<div class="box" id="play">
+    				<p class="prev">&laquo;</p>
+				    <p class="next">&raquo;</p>
+				   	<ol>
+				        <li class="active">1</li>
+				        <li>2</li>
+				        <li>3</li>
+				        <li>4</li>
+				        <li>5</li>
+				    </ol>
+				    <ul>
+				        <li><a href="#"><img src="img/1.jpg" alt="公告一" /></a></li>
+				        <li><a href="#"><img src="img/2.jpg" alt="公告二" /></a></li>
+				        <li><a href="#"><img src="img/3.jpg" alt="公告三" /></a></li>
+				        <li><a href="#"><img src="img/4.jpg" alt="公告四" /></a></li>
+				        <li><a href="#"><img src="img/5.jpg" alt="公告五" /></a></li>
+				    </ul>
+				</div>
+
+				<div id="notice">
+					<div class="title">
+						<h4>主楼消息通知</h4>
+						<a href="#">MORE</a>
+					</div>
+					<ul>
+						<li><a href="#">主楼网络U盘(FTP)的使用说明</a><span>04-15</span></li>
+						<li><a href="#">主楼多媒体教学必备知识</a><span>04-15</span></li>
+						<li><a href="#">欢迎使用主楼多媒体</a><span>03-01</span></li>
+						<li><a href="#">主楼网站全新改版</a><span>03-01</span></li>
+					</ul>
+				</div>
+				<div id="news">
+					<div class="title">
+						<h4>工大要闻</h4>
+						<a href="#">MORE</a>
+					</div>
+					<ul>
+						<li><a href="#">我校成功举办第三届中德非晶研讨会</a></li>
+						<li><a href="#">《中国制造2025》出台明确制造强国路线图</a></li>
+						<li><a href="#">学校举办新党员专题网络示范培训班</a></li>
+						<li><a href="#">中国驻大阪总领事馆教育参赞李春生来我校考察</a></li>
+						<li><a href="#">我校学生在全国机械产品数字化设计大赛中获佳</a></li>
+						<li><a href="#">美国驻沪总领事馆总领事史墨客先生一行来我校</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="right_content">
+				<div id="date">
+					<div class="title">
+						<h4>日期时间</h4>
+					</div>
+					<ul>
+						<li>时间：{{year}}年{{month}}月{{date}}日 &nbsp{{hour}}:{{minu}}:{{sec}}</li>
+						<li>农历：{{lunarday}}</li>
+						<li>周数：第 {{week}} 周&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp星期{{n}}</li>
+					</ul>
+				</div>
+				<div id="link">
+					<div class="title">
+						<h4>友情链接</h4>
+					</div>
+					<ul>
+						<li><a href="#">工大主页</a></li>
+						<li><a href="#"> 网络教学平台</a></li>
+						<li><a href="#">教学管理系统</a></li>
+						<li><a href="#"> 百度</a></li>
+						<li><a href="#"> 谷歌</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="clearfix">
+			<ul>
+				<li>版权所有©</li>
+				<li>合肥工业大学主楼多媒体办公室&nbsp电话:62902234</li>
+				<li>技术支持:shenweiwudi,jasondxh</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/getLunarday.js"></script>
+	<!--[if IE 6]>
+	<script src="js/DD_belatedPNG.js"></script>
+	<script>
+	DD_belatedPNG.fix('*');
+
+
+	var divs = getClassNames('tabs_div' , 'div'); 
+	function getClassNames(classStr,tagName){ 
+	if (document.getElementsByClassName) { 
+	return document.getElementsByClassName(classStr) 
+	}else { 
+	var nodes = document.getElementsByTagName(tagName),ret = []; 
+	for(i = 0; i < nodes.length; i++) { 
+	if(hasClass(nodes[i],classStr)){ 
+	ret.push(nodes[i]) 
+	} 
+	} 
+	return ret; 
+	} 
+	} 
+	function hasClass(tagStr,classStr){ 
+	var arr=tagStr.className.split(/\s+/ ); //这个正则表达式是因为class可以有多个,判断是否包含 
+	for (var i=0;i<arr.length;i++){ 
+	if (arr[i]==classStr){ 
+	return true ; 
+	} 
+	} 
+	return false ; 
+	} 
+	</script>
+	<![endif]-->
+</body>
+</html>

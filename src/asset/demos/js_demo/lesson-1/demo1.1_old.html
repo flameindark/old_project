@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>控制div属性</title>
+	<style>
+		.wrap{margin: 0 auto;text-align: center;width: 500px;}
+		#div1{width: 100px;height: 100px;background-color: #000;margin: 10px auto;}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<input type="button" id="1" value="变宽">
+		<input type="button" id="2" value="变高">
+		<input type="button" id="3" value="变色">
+		<input type="button" id="4" value="隐藏">
+		<input type="button" id="5" value="重置">
+		<div id="div1"></div>
+	</div>
+	<script>
+	var changeStyle = function (elem, attr, value)
+{
+	elem.style[attr] = value
+};
+window.onload = function ()
+{
+	var oBtn = document.getElementsByTagName("input");
+	var oDiv = document.getElementById("div1");
+	var oAtt = ["width","height","background","display","display"];
+	var oVal = ["200px","200px","red","none","block"];
+
+	for (var i = 0; i < oBtn.length; i++)
+	{
+		oBtn[i].index = i;
+		oBtn[i].onclick = function ()
+		{
+			this.index == oBtn.length - 1 && (oDiv.style.cssText = "");//这一条是当this.index为4的时候执行后面的cssText=""操作重置样式。。
+			changeStyle(oDiv, oAtt[this.index], oVal[this.index])
+		}	
+	}
+};
+	</script>
+</body>
+</html>

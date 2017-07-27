@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复选框：全选/不选/反选</title>
+</head>
+	<style>
+		#wrap{width: 130px;border:1px solid #555;margin: 0 auto;border-radius: 4px;}
+		h2{height: 30px;font-size: 12px;font-weight: bold;width:120px;margin: 10px auto;border-bottom: 1px solid #555;text-indent: 10px; }
+		h2 span{color: blue;font-weight: normal;margin-left: 15px;cursor: pointer;}
+		h2 span:hover{color: red;}
+		ul{list-style: none;font-size:12px;padding: 0; }
+		ul li{margin: 0 0 15px 15px;}
+		p{text-align: center;font-size: 12px;}
+	</style>
+<body>
+	<div id="wrap">
+		<h2><input type="checkbox">全选<span>反选</span></h2>
+		<ul>
+			<li><input type="checkbox">选项（一）</li>
+			<li><input type="checkbox">选项（二）</li>
+			<li><input type="checkbox">选项（三）</li>
+			<li><input type="checkbox">选项（四）</li>
+			<li><input type="checkbox">选项（五）</li>
+			<li><input type="checkbox">选项（六）</li>
+			<li><input type="checkbox">选项（七）</li>
+			<li><input type="checkbox">选项（八）</li>
+			<li><input type="checkbox">选项（九）</li>
+			<li><input type="checkbox">选项（十）</li>
+		</ul>
+	</div>
+	<p>1、切换全选/全不选文字；2、根据选中个数更新全选框状态；</p>
+	<script>
+		// 自己的脚本，没什么问题，但有些方法写的不够精炼。
+		var aInput=document.getElementsByTagName('input');
+		var aReverse=document.getElementsByTagName('span')[0];
+		var oDiv=document.getElementsByTagName('div')[1];
+		window.onload=function  () {
+			// 判断是否全部都选中，以及在更新两种情况下的各元素的状态
+
+				// 这个方法中的if语句可以用冒号运算符解决，因为只有两种情况，且语句较短
+				function allCheck () {
+					for (var j = 1; j < aInput.length; j++) {
+						if (aInput[j].checked==false) {
+							aInput[0].checked=false;
+							aInput[0].nextSibling.nodeValue="全选";
+							return false;
+						}		
+					}
+					aInput[0].checked=true;
+					aInput[0].nextSibling.nodeValue="全不选";
+					return true
+					}
+
+				//全选的实现
+				 //这个方法中原来的一些语句和上面allCheck重复了，重新参考后，写成了下面的。
+				aInput[0].onclick=function  () {            
+					for (var i = 1; i < aInput.length; i++){
+						aInput[i].checked = this.checked			
+					}
+					allCheck();
+				}
+				//单点的实现
+				for (var i = 1; i < aInput.length; i++) {
+					aInput[i].onclick=function  () {
+						allCheck();
+					}
+				};
+				//反选的实现
+				aReverse.onclick=function  () {
+					for (var i = 1; i < aInput.length; i++) {
+						// var temp=aInput[i].checked;
+						// 根据参考的脚本做出了改变，本来是用的temp值的方法
+						aInput[i].checked=!aInput[i].checked;
+					};
+					allCheck();
+				}
+		}
+
+
+// window.onload = function ()
+// {
+// 	var oA = document.getElementsByTagName("a")[0];	
+// 	var oInput = document.getElementsByTagName("input");
+// 	var oLabel = document.getElementsByTagName("label")[0];
+// 	var isCheckAll = function ()
+// 	{
+// 		for (var i = 1, n = 0; i < oInput.length; i++)
+// 		{
+// 			oInput[i].checked && n++	
+// 		}
+// 		oInput[0].checked = n == oInput.length - 1;
+// 		oLabel.innerHTML = oInput[0].checked ? "全不选" : "全选"
+// 	};
+// 	//全选/全不选
+// 	oInput[0].onclick = function ()
+// 	{
+// 		for (var i = 1; i < oInput.length; i++)
+// 		{
+// 			oInput[i].checked = this.checked			
+// 		}
+// 		isCheckAll()
+// 	};
+// 	//反选
+// 	oA.onclick = function ()
+// 	{
+// 		for (var i = 1; i < oInput.length; i++)
+// 		{
+// 			oInput[i].checked = !oInput[i].checked//居然还可以这样写，(⊙﹏⊙)b。。。get
+// 		}
+// 		isCheckAll()
+// 	};
+// 	//根据复选个数更新全选框状态
+// 	for (var i = 1; i < oInput.length; i++)
+// 	{
+// 		oInput[i].onclick = function ()
+// 		{
+// 			isCheckAll()
+// 		}	
+// 	}	
+// }
+
+	</script>
+</body>
+</html>

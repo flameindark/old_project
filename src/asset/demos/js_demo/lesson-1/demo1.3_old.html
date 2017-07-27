@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数接受参数并弹出</title>
+	<style>
+		body{text-align: center;}
+	</style>
+</head>
+<body>
+		<input type="text" value="北京市"><br><br>
+		<input type="text" value="朝阳区"><br><br>
+		<input type="button" value="传参">
+	<script>
+		var oBtn=document.getElementsByTagName('input')[2];
+		var oText1=document.getElementsByTagName('input')[0];
+		var oText2=document.getElementsByTagName('input')[1];		
+		oBtn.onclick=function  () {
+			alert(oText1.value);
+			alert(oText2.value);
+		}
+	</script>
+</body>
+</html>

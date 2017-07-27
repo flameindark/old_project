@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+	<title>测试内容组织对象</title>
+	<script type="text/javascript" src="../js/lib/jquery.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="../js/H5.js"></script>
+	<script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/H5.css">
+	<link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+</head>
+<body>
+	<script type="text/javascript">
+		$(function () {
+			var h5 = new H5();
+			h5.addPage("1")
+					.addComponent('logo',{
+						text : 'logo',
+						width : 400,
+						height : 100,
+						css : {backgroundColor:'green',top:200,opacity:0},
+						center : true,
+						animateIn : {
+							opacity : 1
+						},
+						animateOut : {
+							opacity : 0 
+						}
+					})
+					.addComponent('slogan',{
+						text:'slogan',
+						width : 400,
+						height : 100,
+						css : {backgroundColor:'red',top:300},
+						center : true 
+					})
+				.addPage("2").addComponent('核心理念',{
+						text:'核心理念',
+						width : 400,
+						height : 100,
+						css : {backgroundColor:'blue',top:300},
+						center : true 
+					})
+				.addPage("3")
+				.loader();
+		})
+	</script>
+</body>
+</html>

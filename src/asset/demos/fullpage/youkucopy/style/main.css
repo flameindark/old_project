@@ -1,0 +1,729 @@
+/*some reset style*/
+body,input,ul,p{padding: 0;margin: 0;}
+html{height: 100%}
+img{border:0 none}
+ul{list-style: none;}
+a{text-decoration: none;color: inherit;cursor: pointer;}
+/*清除浮动*/
+.clearfix{
+	zoom: 1;
+}
+.clearfix:after{
+	content: "";
+	display: table;
+	line-height: 0;
+	clear: both;
+}
+/*给所有的<a>加hover效果*/
+a:hover{
+	color:#A91919;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?vv0z8p');
+	src:url('../fonts/icomoon.eot?vv0z8p#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?vv0z8p') format('truetype'),
+		url('../fonts/icomoon.woff?vv0z8p') format('woff'),
+		url('../fonts/icomoon.svg?vv0z8p#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	/*line-height: 1;*/
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*resetcss*/
+
+body{
+	text-align: center;
+	width: 100%;
+	color: #777;
+	font-family: "Microsoft YaHei","微软雅黑",helvetica,arial,verdana,tahoma,sans-serif;
+}
+
+/*头部fixed部分*/
+#header{
+	height: 110px;
+	min-width: 1008px;
+
+}
+#header_box{
+	font-weight: bold;
+	min-width: 1008px;
+	z-index: 1000;
+	padding: 0 20px;
+	height: 60px;
+	width: 100%;
+	position: fixed;
+	background: #f5f5f5;
+}
+#header_box img{
+	margin-top: 15px;
+	width: 140px;
+	height: 30px;
+	float: left;
+}
+#header_box .header_search{
+	height: 36px;
+	position: absolute;
+	left: 50%;
+	margin-top: 10px;
+	margin-left: -230px;
+}
+#header_box .header_search input{
+	float: left;
+	height: 20px;
+	width: 350px;
+	border:solid 2px #9f9f9f;
+	border-right: 0 none;
+	padding: 8px;
+}
+#header .header_search span{
+	display: inline-block;
+	background: url(../images/search_btn_bg.png) repeat-x;
+	width: 88px;
+	height: 38px;
+	float: right;
+	border:1px solid #1966ca;
+	line-height: 38px;
+	color:#fefefe;
+}
+#header .user_center{
+	float: right;
+	margin-top:22px;
+}
+#header .user_center .user_upload,.user_history,.icon-user{
+	float: right;
+	margin-right: 40px;
+}
+
+
+/*头部导航栏*/
+#header #header_nav{
+	font-size: 16px;
+	width: 1190px;
+	position: absolute;
+	left: 50%;
+	top: 60px;
+	margin-left: -595px;
+	border-bottom: solid #e5e5e5 3px;
+}
+#header #header_nav a{
+	display: block;
+	height: 36px;
+}
+#header_nav .nav_main,#header_nav .nav_side{
+	margin-top: 9px;
+	height: 36px;
+	line-height: 36px;
+}
+#header_nav .nav_main{
+	float: left;
+}
+#header_nav .nav_main ul{
+	font-size: 18px;
+}
+#header_nav .nav_main .nav_list ul li{
+	float: left;
+	margin-right: 25px;
+} 
+#header_nav .nav_main .active a{
+	color: #2CA4F8;
+	border-bottom: 3px solid #2CA4F8;	
+}
+.nav_main .nav_classify,.nav_main .nav_list{
+	float: left;
+}
+#header_nav .nav_side{
+	float: right;
+}
+#header_nav .nav_side ul li,.nav_main .nav_classify ul li{
+	float: right;
+	margin-left: 18px;
+}
+.nav_main .nav_classify ul li strong{
+	font-size: 20px;
+	font-weight: bold;
+}
+.nav_main .nav_classify ul li span{
+	font-size: 10px;
+}
+
+
+/*内容区域开始*/
+#window .content{
+	width:1190px;
+	margin: 0 auto; 
+	padding: 30px 0px 20px 0px;
+	border-bottom: 2px solid #dcdcdc;
+}
+/*第一个栏目的样式*/
+.content .col_left1,.col1{
+	width: 660px;
+}
+.content .col_left2{
+	width: 220px;
+}
+.col_left1,.col_left2,.col_right{
+	float: left;
+}
+/*主推的视频*/
+.content .content_main{
+	float: left;
+	position: relative;
+	margin:0 10px;
+}
+.content .content_col{
+	
+}
+.content_col .col_link{
+	z-index: 4;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+
+}
+.content_col .col_link a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.col_meta{
+	width: 100%;
+	text-align: left;
+}
+.meta1{
+	z-index: 3;
+	position: absolute;
+	bottom: 0;
+	height: 45px;
+	padding-top: 45px;
+	background: url(../images/col_defalut.png) no-repeat;
+	color: #eee;
+	overflow: hidden;
+}
+.meta1 .col_title{
+	height: 100%;
+}
+.meta1 .col_title a{
+	font-size: 14px;
+	height: 24px;
+	line-height: 24px;
+	margin-left: 10px;
+	position: absolute;
+	bottom: 4px;
+}
+.content_main .meta1 .col_title a{
+	font-weight: bold;
+	font-size: 16px;
+}
+.content_col .col_meta .col_message{
+	font-size: 12px;
+	padding-left: 10px;
+}
+.content_col .col_meta .col_message span{
+	margin-right:20px; 
+}
+/*如果meta1的话鼠标移入会有动态效果（给它添加一个class）*/
+.col_hover .meta1{
+	padding: 0px;
+	background: none;
+	height: 100%;
+	font-size: 14px;
+	text-indent: 6px;
+	overflow: hidden;
+}
+.col_hover .meta1 a:hover{
+	color: #fff;
+}
+.normal_col_wrap .col_hover .col_link{
+	z-index: 6;
+}
+.col_hover .meta1 .col_title{
+	margin-top: 8px ;
+	height: 24px;
+}
+.col_hover .meta1 .col_title a{
+	font-size: 16px;
+	margin: 0;
+	position: relative;
+	z-index: 7;
+}
+.col_hover .meta1 .col_overlay{
+	background: #000;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	z-index: 6;
+	width: 100%;
+	top: 0;		
+	height: 100%;
+	position: absolute;
+}
+.col_hover .meta1 .col_owner,
+.col_hover .meta1 .col_play,
+.col_hover .meta1 .col_subtitle,
+.col_hover .meta1 .col_num{
+	position: relative;
+	z-index: 7;
+	height: 24px;
+	width: 100%;
+	line-height: 24px;
+}
+.col_hover .meta1 .col_owner a{
+	float: none;
+}
+.col_hover .meta1 .col_play{
+	background: url(../images/small_pic.png) no-repeat 0 -98px;
+	width: 56px;
+	height: 24px;
+	text-align: center;
+	margin-left: 6px;
+}
+.col_hover .meta1 .col_num{
+	position: absolute;
+	right: 6px;
+	width: 60px;
+	top: 54px;
+	height: 24px;
+	line-height: 24px;
+	z-index: 7;
+}
+
+/*第一个栏目中其他推荐视频*/
+.content_col_normal{
+	float: left;
+	margin:0 10px 20px 10px;
+	position: relative;
+}
+.content_col_normal .col_link,
+.content_col_normal .col_link a{
+	z-index: 4;
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	margin-bottom: 20px;
+}
+
+/*第一个栏目中的右边广告部分*/
+.col_right .col_ad{
+	margin:0 0 20px 10px;
+}
+
+/*原创栏目下边和右边广告部分*/
+.col2{
+	width: 880px;
+}
+.col2_wrap{
+	height: 210px;
+	width: 880px;
+}
+.col_inline_list{
+	font-size: 14px;
+	float: right;
+}
+.col_inline_list .col_inline{
+	width: 300px;
+	margin-bottom: 16px;
+}
+.col_inline_list .col_inline .col_inline_topic{
+	height: 44px;
+	width: 162px;
+	float: right;
+	text-align: left;
+	padding-top: 6px;
+}
+.col_row .col_ad1{
+	margin: 0 10px 20px 10px ;
+	float: left;
+}
+/*个人中心栏目*/
+.meta2{
+	background: #f2f2f2;
+	height: 75px;
+	padding-bottom: 5px;
+	width: 200px;
+	font-size: 12px;
+}
+.meta2 img{
+	border:2px solid #fff;
+	margin: -14px 5px 0 4px;
+}
+.meta2 .col_title{
+	padding:10px 0 0 10px;
+}
+.meta2 .col_title strong{
+	font-size: 14px;
+}
+.col_row .col_side_topic{
+	height: 190px;
+	background: #f5f5f5;
+	width: 80px;
+	float: right;
+	margin-left: 10px;
+}
+.col_side_topic .topic_content{
+	width: 50px;
+	margin:50px auto;
+	font-size: 18px;
+}
+.col_row .row_header {
+	height: 35px;
+	margin-bottom: 20px;
+	padding-left: 10px;
+}
+.row_menu ul li a{
+	float: left;
+	line-height: 26px;
+	display: inline-block; 
+	padding: 5px 10px;
+}
+.row_menu ul li a:hover,
+.row_menu ul li a.chosen{
+	background: #05a6e0;
+	color: #eee;
+}
+.row_menu ul li a strong{
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.row_menu a span{
+	float: left;
+	display: inline-block;
+	font-size: 26px;
+	margin-right: 20px;
+	line-height: 36px;
+	font-weight: bold;
+}
+
+.row_menu a span:hover{
+	color: #BC0505;
+}
+
+/*电视剧栏目开始*/
+/*左边栏目复用的第一个栏目中的布局和内容*/
+.topic_list{
+	float: left;
+	margin-bottom: 10px;
+	margin-top: -56px;
+	width: 310px;
+	height: 256px;
+	overflow: hidden;
+}
+.topic_list .topic_header{
+	height: 36px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.topic_list .topic_content{
+	width: 300px;
+	height: 200px;
+}
+.topic_list .topics ul{
+	padding: 0;
+	width: 150px;
+	height: 200px;
+	float: left;
+}
+.topic_list .topics ul li{
+	height: 30px;
+	display: inline-block;
+	text-align: left;
+	margin-bottom: 10px;
+	max-width: 150px;
+	min-width: 80px;
+}
+.topic_list .topics ul li span{
+	display: inline-block;
+	color: #fff;
+	margin-right: 10px;
+	width:30px;
+	background:#05a6e0 ;
+	text-align: center;
+}
+.topic_list .topics ul li span.hot{
+	background: #EE3E21;
+}
+.ad_inline_list .ad_inline{
+	margin-top: 10px;
+	width: 300px;
+	float: left;
+	text-align: left;
+}
+.ad_inline_list .ad_inline img{
+	float: left;
+	margin-right: 8px;
+}
+.ad_inline_list .ad_inline .ad_inline_topic{
+	height: 44px;
+	width: 170px;
+	float: left;
+	text-align: left;
+	padding-top: 6px;
+}
+
+
+/*电影预告栏目开始*/
+.col4{
+	width: 880px;
+	float: left;
+}
+
+/*用户推荐栏目开始*/
+.topic_list .topic_users ul{
+	width: 310px;
+	margin-top: 10px;
+}
+.topic_list .topic_users ul li{
+	display: inline-block;
+	float: left;
+	margin:0 10px 6px 0;
+}
+.topic_list .topic_users ul li img{
+	display: block;
+}
+/*视频话题栏目开始*/
+.news_list{
+	float: left;
+	color: #666;
+}
+.news_list ul{
+	width: 880px;
+	height: 120px;
+}
+.news_list li{
+	display: inline-block;
+	height: 40px;
+	width: 440px;
+	float: left;
+	text-align: left;
+	text-indent: 60px;
+}
+.news_list li span{
+	color: #000;
+}
+.ad_row{
+	margin-top: 40px;
+	float: left;
+}
+
+
+/*footer部分开始*/
+#footer{
+	font-size: 14px;
+	width: 1190px;
+	margin: 0 auto;
+	text-align: left;
+}
+/*footer的导航栏目开始*/
+.footer_nav{
+	margin-top: 20px;
+	color: #545454;
+	height: 120px;
+	line-height: 28px;
+}
+.footer_items{
+	margin-right: 40px;
+	float: left;
+}
+.footer_items2{
+	margin-right: 8px;
+}
+.footer_items .item_theme {
+	color: #8f8f8f;
+	display: inline-block;
+	width: 100%;
+}
+.footer_items li{
+	float: left;
+	margin-right: 16px;
+}	
+/*footer的备案信息等栏目开始*/
+.footer_info{
+	margin-top: 40px;
+}
+.license{
+	float: left;
+}
+.license_list{
+	float: left;
+	margin-right: 70px;
+}
+.license_list li{
+	line-height: 26px;
+}
+.QRcode{
+	float: left;
+	height: 100px;
+	vertical-align: center;
+}
+.QRcode_intro{
+	float: right;
+	margin-left: 18px;
+}
+.QRcode_intro span{
+	font-size: 18px;
+}
+/*copyright区*/
+.copyright{
+	margin-top: 40px;
+	text-align: center;
+}
+
+
+/*新手引导区*/
+/*#mask{
+	background: #000;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1111;
+}*/
+#oprateTips a{
+	display: inline-block;
+	position: absolute;
+	width: 90px;
+	height: 30px;
+	text-indent: -3000px;
+	overflow: hidden;
+}
+#oprateTips span{
+	display: inline-block;
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	text-indent: -3000px;
+	overflow: hidden;
+}
+#oprateTips .stepA{
+	background: url(../images/guide11.png) no-repeat;
+	width: 445px;
+	height: 321px;
+	position: absolute;
+	left: 592px;
+	top: 38px;
+	z-index: 2222;
+}
+
+#oprateTips .stepA a,
+#oprateTips .stepB a,
+#oprateTips .stepC a{
+	left: 155px;
+	top: 212px;
+
+}
+#oprateTips .stepA span,
+#oprateTips .stepB span,
+#oprateTips .stepC span{
+	left: 338px;
+	top: 100px;
+}
+#oprateTips .stepC{
+	background: url(../images/guide31.png) no-repeat;
+	width: 445px;
+	height: 321px;
+	position: absolute;
+	left: 520px;
+	top: 1260px;
+	z-index: 2222;
+}
+#oprateTips .stepB{
+	background: url(../images/guide21.png) no-repeat;
+	width: 445px;
+	height: 321px;
+	position: absolute;
+	left: 110px;
+	top: 200px;
+	z-index: 2222;
+}
+/*遮罩层的样式代码，使用jQuery时可以注释掉*/
+#mask{
+	width: 100%;
+	background: #000;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	position: absolute;
+   	left: 0;
+ 	top: 0;
+    z-index: 1111;
+}
+/*登录的弹出层*/
+#login{
+	background: url(../images/loginBg.png) no-repeat;
+	position: fixed;
+	z-index: 2222;
+	width: 393px;
+	height: 380px;
+	left: 50%;
+	margin-left: -196px;
+	top: 100px;
+}
+#login input{
+	height: 30px;
+	width: 270px;
+	position: absolute;
+	border: none;
+	color: gray;
+	line-height: 30px;
+	outline:none;
+}
+#login .inputA{
+	left: 84px;
+	top: 104px;
+}
+#login .inputB{
+	left: 84px;
+	top: 174px;
+}
+#login .btnA{
+	height: 40px;
+	width: 160px;
+	left: 200px;
+	top: 298px;
+	background: none;
+	cursor: pointer;
+}
+#login span{
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	background: url(../images/small_pic.png) no-repeat;
+	left: 364px;
+	cursor: pointer;
+	top: 10px;
+}
+
+/*回到顶部按钮*/
+#toTop{
+	display: inline-block;
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	background: url(../images/small_pic.png) no-repeat 0 -18px;
+	right: 30px;
+	bottom: 60px;
+	display: none;
+	cursor: pointer;
+}
+#toTop:hover{
+	background: url(../images/small_pic.png) no-repeat  0 -58px;
+}

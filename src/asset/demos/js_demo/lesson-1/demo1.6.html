@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>记住密码提示框</title>
+	<style>
+		body{text-align: center;}
+		label{display: inline-block;}
+		div{width: 180px;font-size: 10px;background-color: yellow;margin: 0 auto;border:1px solid #660066;padding: 0px;line-height: 15px;}
+		p{margin: 0;}
+	</style>
+</head>
+<body>
+	<label for="check">
+		<input type="checkbox" name="check">两周内自动登录
+	</label>
+	<div style="display:none">
+		<p>为了你的信息安全，请不要在公共场合使用此选项</p>
+	</div>
+	<script>
+		var oLabel=document.getElementsByTagName('label')[0];
+		var oDiv=document.getElementsByTagName('div')[0];
+		oLabel.onmouseover=function  () {
+			oDiv.style.display="block";
+		}
+		oLabel.onmouseout=function  () {
+			oDiv.style.display="none";
+		}
+	</script>
+</body>
+</html>
